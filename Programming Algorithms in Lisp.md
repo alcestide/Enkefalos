@@ -474,3 +474,266 @@ discussion of complexity:
 
 A **matrix** has rows (first dimension) and columns (second
 dimension).
+
+### Binary Search
+
+
+The simple way to  search for an element in Lisp is using the function find :  
+
+```lisp
+CL-USER> (let ((vec (make-array 2 :initial-  
+	contents  
+								  (list (rtl:pair  
+:foo :bar)  
+										(rtl:pair  
+:baz :quux)))))  
+		   (print (find (rtl:pair :foo :bar) vec))  
+           (print (find (rtl:pair :foo :bar) vec  
+:test 'equal))  
+	       (print (find (rtl:pair :bar :baz) vec  
+:test 'equal))  
+           (print (find :foo vec :key 'lt)))  
+NIL  
+(:FOO :BAR)  
+NIL  
+(:FOO :BAR)
+```
+
+In the first case, the element was not found due to the wrong  
+comparison predicate: the default eql will only consider two  
+structures to be the same if they’re the same object, and, in this case,  
+there will be two separate pairs with the same content.  
+
+The second search is successful as equal performs deep comparison. 
+Such search is called sequential scan because it is performed in a  
+sequential manner over all elements of the vector starting from the  
+beginning
+
+If we know that our sequence is sorted, we can perform  
+the search much faster. The algorithm used for that is one of the most  
+famous algorithms that every programmer has to know and use, from  
+time to time—binary search. 
+The more general idea behind it is called  *“divide and conquer”:* if there’s some way, looking at one element, to  
+determine the outcome of our global operation for more than just this  
+element, we can discard the part for which we already know that the  
+outcome is negative. In **binary search**, when we’re looking at an  
+arbitrary element of the sorted vector and compare it with the item we  
+search for  
+
+- If the element is the same, we have found it.  
+- If it’s smaller, all the previous elements are also smaller and thus  
+- uninteresting to us—we need to look only on the subsequent ones.  
+- If it’s greater, all the following elements are not interesting.
+
+Here’s an “optimized” version of binary search that returns  
+three values:  
+- The final element of the array.  
+- Its position.  
+- Has it, actually, matched the element we were searching for?
+
+```lisp
+(defun bin-search (val vec &key (less '<) (test  
+'=) (key 'identity))  
+	(when (plusp (length vec))  
+	(let ((beg 0)  
+		(end (1- (length vec))))  
+	 (do ()  
+		((= beg end))  
+	(let ((mid (+ beg (floor (- end beg) 2))))  
+		(if (funcall less (funcall key (aref vec  
+mid)) val)  
+			(setf beg (1+ mid))
+
+			(setf end mid))))  
+		(values (aref vec beg)  
+				beg  
+				(funcall test (funcall key (aref vec  
+beg)) val)))))
+```
+
+The number of  iterations needed to expand the full array may be calculated by the  
+inverse of exponentiation—the logarithmic function. That is, we’ll need  
+**(log n 2)** iterations (where n is the initial array size). Shrinking the  
+array takes the same as expanding, just in the opposite order, so the  
+complexity of binary search is **O(log n)**.
+
+Here's a speed comparison:
+
+```lisp
+CL-USER> (rtl:with ((size 100000000)  
+					(mid (1+ (/ size 2)))  
+					(vec (make-array size)))  
+			(dotimes (i size)  
+				(setf (aref vec i) i))  
+			(time (find mid vec))  
+			(time (bin-search mid vec)))  
+Evaluation took:  
+	0.591 seconds of real time  
+	0.595787 seconds of total run time (0.595787  
+user, 0.000000 system)  
+	100.85% CPU  
+	...  
+Evaluation took:  
+	0.000 seconds of real time
+	0.000000 seconds of total run time (0.000000  
+user, 0.000000 system)  
+	100.00% CPU  
+	...
+```
+
+The **crucial limitation** of binary search is that it requires our  
+sequence to be presorted because sorting before each search already  
+requires at least linear time to complete, which kills any performance  
+beneit we might have expected. 
+Obviously, it will only work fast for  
+**vectors** and not linked sequences.
+
+## Sorting
+Unlike searching, there is no single optimal algorithm for sorting. Several aspects differentiate sorting functions:
+
+- **In-place**: This kind of sorting is a destructive operation, but it is often  
+desired because it may be faster and also it preserves space. The alternative is copying sort.
+- **Stable**: Whether two elements, which are considered the same by the  
+predicate, retain their original order or may be shufled.
+- **Online**: Does the function require the whole sequence before starting the sorting process?
+
+An ideal  algorithm should show better than average performance (up to **O(1)**)  
+on the sorted and almost sorted special cases.
+**Sorting** was and still remains a popular  research topic. 
+Not surprisingly, several dozens of different sorting  
+algorithms were developed. But before discussing the prominent ones,  
+let’s talk about “stupid sort” (or “**bogosort**”). In the case of bogosort, the  
+number of possible inputs is the number of all permutations that’s  equal to n!, so considering that we need to also examine each permutation’s order, the algorithm’s complexity is **O(n * n!)**.
+
+```lisp
+(defun bogosort (vec comp)  
+	(dolist (variant (all-permutations vec))  
+		(dotimes (i (1- (length variant)))  
+					;; this is the 3rd optional  
+					;; argument of dotimes header  
+					;; that is evaluated only after  
+					;; the loop finishes normally  
+					;; if it does we have found a  
+					;;completely sorted permutation!  
+					(return-from bogosort variant))  
+		(when (funcall comp (aref variant (1+ i))  
+(aref variant i))  
+		(return))))) ; current variant is not  
+sorted, skip it
+```
+
+### O(n^2) Sorting
+Bogosort gives us a good lower bound on the sorting  
+algorithm’s performance. There are a number of simple algorithms that work in quadratic time and that are far more efficient than bogosort.
+One of the most well known is "**Bubble Sort**", but it's not too straightforward and has poor performance characteristics too, and for that reason is rarely used.
+Two simple quadratic algorithms that are actually useful are:
+
+- Selection Sort
+- Insertion Sort
+
+Selection Sort is an in-place sorting algorithm that moves left to right from the beginning of the vector one element at a time and builds the sorted prefix to the left of the current element. This is done by finding the largest element in the right part and swapping it with the current element:
+
+```lisp
+(defun selection-sort (vec comp)  
+	(dotimes (i (1- (length vec)))  
+		(let ((best (aref vec i))  
+				(idx i))  
+			(dotimes (j (- (length vec) i 1))  
+				(when (call comp (aref vec (+ i j 1))  
+best)  
+			(setf best (aref vec (+ i j 1))  
+				idx (+ i j 1))))  
+		(rotatef (aref vec i) (aref vec idx)))) ;  
+this is the Lisp swap operator  
+	vec)
+```
+
+This algorithm requires a constant number of operations regardless of the level of sortedness: `(/ (* n (- n  1)) 2)` --- the sum of the arithmetic progression from 1 to n, because at each step, it needs to fully examine the remainder of the lements to find the maximum and the remainder's size varies from n to 1. It handles well both contiguous and linked sequences.
+The Insertion Sort is another quadratic-time in-place sorting algorithm. This one, instead of looking for the global maximum on the right-hand side, it looks for a proper place of the current element on the left-hand side. As this part is always sorted, it takes linear time to find the place for the new element and insert it accordingly.
+This has great implications:
+
+- It is stable;
+- It is online. In contrat with selection sort, it doesnt't have to find the maximum element of the sequence in the first step;
+- For sorted sequences, it works in linear time. However, for reverse sorted sequences, its performance will be the worse **O(k *  n)**, where k is the average offset of the element. For sorted  sequences k=0 and for reverse sorted sequences, it’s `(/ (- n 1)  2)`;
+
+```lisp
+(defun insertion-sort (vec comp)  
+	(dotimes (i (1- (length vec)))  
+		(do ((j i (1- j)))  
+			((minusp j))  
+		  (if (funcall comp (aref vec (1+ j)) (aref  
+vec j))  
+			(rotatef (aref vec (1+ j)) (aref vec j))  
+			(return))))  
+	vec)
+```
+
+The implementation is  simple: we look at each element starting from the second an compare it to the previous element, and if it's better, we swap them and continue the comparison with the previous element until we reach the array's beginning.
+So, when it comes to actual processing time, which one is better?
+
+If we compare them when taking into analysis the average case, we’ll get the following numbers:
+
+- Selection sort: `(+ (/ (* n (- n 1)) 2) (/ n 2)) = (/  (+ (* n n) n) 2)`
+- Insertion sort: `(+ (/ (* n (- n 1)) 2) (+ (/ (* (- n  1) (- n 2)) 4) = (/ (+ (* 1.5 n n) (* -2.5 n) 1)  2)`
+
+The second number is slightly higher than the first. For small `n`s it is almost negligible, but for huge ones, insertion sort will need **1.5 times** more operations. 
+It is also the case that swaps are more expensive than comparisons. In practice, insertion sort ends up being used more often. In general,  quadratic sorts are only used when the input array is **small**.
+
+## Quicksort
+There are a number of other **O(n^2)** sorting algorithms similar to  
+selection and insertion sorts, but studying them quickly turns boring,  
+so we won’t, as there are also a number of signiicantly faster  
+algorithms that work in **O(n * log n)** time *(almost linear)*.
+
+They rely on the *divide-and-conquer* approach. Probably, the most famous of such algorithms is quicksort. Its idea  is, at each iteration, to select some element of the array as the “**pivot**”  point and divide the array into two parts—all the elements that are  
+smaller and all those that are larger than the pivot—and then  recursively sort each subarray. As all left elements are below the pivot  and all right above, when we manage to sort the left and right sides, the  whole array will be sorted. This invariant holds for all iterations and for all subarrays.
+
+There’re several tricks in quicksort implementation. The first one has to do with pivot selection.
+Let’s say  that all elements are greater than the pivot—then the pivot will be at index 0.
+Now, if  moving left to right over the array we encounter an element that is not  
+greater than the pivot, we should put it before, that is, the pivot’s index  
+should increment by 1. When we reach the end of the array, we know  
+the correct position of the pivot, and in the process, we can swap all the  
+elements that should precede it in front of this position. We have then  to put the element that is currently occupying the pivot’s place  somewhere. The most obvious  thing is to swap it with the pivot:
+
+```lisp
+(defun quicksort (vec comp)  
+	(when (> (length vec) 1)  
+	  (with ((pivot-i 0)  
+			(pivot (aref vec (1- (length vec)))))  
+		(dotimes (i (1- (length vec)))  
+		  (when (funcall comp (aref vec i) pivot)  
+		    (rotatef (aref vec i)  
+					 (aref vec pivot-i))  
+			(incf pivot-i)))  
+			;; swap the pivot (last element) in its  
+			;; proper place  
+		(rotatef (aref vec (1- (length vec)))  
+				(aref vec pivot-i))  
+		(quicksort (rtl:slice vec 0 pivot-i) comp)  
+		(quicksort (rtl:slice vec (1+ pivot-i))  
+comp)))  
+	vec)
+```
+
+Let's consider the complexity of this implementation. 
+If on every iteration, we divide the array in two equal halves, we'll need to perform `n` comparisons and `n/2` swaps and increments, which totals to `2n` operations. We'll also need to do that `(log n 2)`, which is the height of a complete binary tree with `n` elements.. At every level of the recursion tree, we'll need to perform twice as many sorts with twice as little data, so each levels equals to a `2n` operations number.
+Total complexity would then be `2n * (log n 2)` which become, when in the ideal case, **O(n * log n*)**.
+
+However, we cannot guarantee that the selected pivot will divide the array into two ideally equal parts.  In the worst case, if we were to split it into two totally unbalanced subarrays, with n-1 and 0 elements, respectively, we'd need to perform sorting n times and perform a number of operations that will diminish in the arithmetic progression from 2n to 2. 
+This sums to (* n ( - n 1)), a dreaded **O(n^2)** complexity.
+
+So the worst-case performance for quicksort is not just worse, but in a different complexity league than the average-case one. 
+Moreover, the conditions for such performance are not so uncommon: sorted and reverse sorted arrays. It is also interesting to note that if, at each stage, we were to split  
+the array into parts that have a 10:1 ratio of lengths, this would have  
+resulted in n * log n complexity.
+
+Dealing with equal elements is another corner case for quicksort  
+that should be addressed properly. The ix is simple: to divide the array  
+not in two but three parts, smaller, larger, and equal to the pivot. This  
+will allow for the removal of the equal elements from further  
+consideration and will even speed up sorting instead of slowing it  
+down.
+
+## Linked Lists
+
