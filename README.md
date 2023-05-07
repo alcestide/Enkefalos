@@ -14,7 +14,7 @@ Still too few .md files here but it'll be populated soon enough, hopefully. Vaul
 #### To-Do
 - [ ] Host Web-Page
 - [ ] Set-Up A Proper Folder Structure
-- [ ] Push Way Too Many Files So That I Can Barely Manage Them (???????)
+- [ ] Git Push Way Too Many Files So That I Can Barely Manage Them, Therefore Having To Start The Whole Process All Over Again(???)
 
 
 
