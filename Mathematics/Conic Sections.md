@@ -3,12 +3,12 @@ shown in the figure.
 For example, if a cone is cut horizontally, the cross  section is a circle. So a circle is a conic section. 
 Other ways of cutting a  cone produce ellipses, parabolas, and hyperbolas.
 
-![[2023-05-07_12-48.png]]
+![](/Resources/2023-05-07_12-48.png)
 
 # Geometric Definition of a Parabola
 > A parabola is the set of all points in the plane that are equidistant from a fixed point *F* (called the **focus**) and a fixed line l (called the **directrix**).
 
-![[2023-05-07_12-51.png]]
+![](/Resources/2023-05-07_12-51.png)
 
 The **vertex** *V* of the parabola lies halfway  between the focus and the directrix, and the **axis of symmetry** is the line that runs  through the focus perpendicular to the directrix.
 In this section we restrict our attention to parabolas that are situated with the vertex  
@@ -42,7 +42,7 @@ The graph of the equation $x^2=4py$ is a parabola with the following properties
 
 The parabola opens upward if $p>0$ or downward if $p<0$.
 
-![[2023-05-07_14-08.png]]
+![](/Resources/2023-05-07_14-08.png)
 
 #### Parabola with Horizontal Axis
 The graph of the equation $y^2=4px$ is a parabola with the following properties.
@@ -53,7 +53,7 @@ The graph of the equation $y^2=4px$ is a parabola with the following properties.
 
 The parabola opens to the right if $p >0$ or to the left if $p<0$.
 
-![[2023-05-07_14-12.png]]
+![](/Resources/2023-05-07_14-12.png)
 
 # Geometric Definition of an Ellipse
 An ellipse is an oval curve that looks like an elongated circle. More precisely, we have  
@@ -84,12 +84,12 @@ $$
 So $x^2=a^2$ or $x=\pm a$ , thus the ellipse crosses the x-axis at $(a,0)$ and $(-a,0)$.
 These points are called the **vertices** of the ellipse, and the segment that joins them is called the **major axis**. Its length is 2a.
 
-![[2023-05-07_14-33.png]]
+![](/Resources/2023-05-07_14-33.png)
 
 ### Definition of Eccentricity
 For the ellipse $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$ or $\frac{x^2}{b^2}+\frac{y^2}{a^2}=1$ (with $a>b>0$), the **eccentricity** *e* is the number 
 $$e=\frac{c}{a}$$
-where $c=\sqrt{a^2-b^2}$ . The eccentricity of every ellipse satisfies $0<e<1$.
+where $c=\sqrt{a^2-b^2}$ . The eccentricity of every ellipse satisfies 0<e<1.
 
 # Geometric Definition of a Hyperbola
 A **hyperbola** is the set of all points in the plane, the difference of whose dis-  
@@ -112,7 +112,7 @@ The hyperbola  consists of two parts, called its branches. The segment joining t
 If we place the foci of the hyperbola on the y-axis rather than on the x-axis, this has  the effect of reversing the roles of x and y in the derivation of the equation of the hyper-  
 bola. This leads to a hyperbola with a vertical transverse axis.
 
-![[2023-05-07_14-50.png]]
+![](/Resources/2023-05-07_14-50.png)
 
 The asymptotes are lines that the hyperbola approaches for large values of x and y. To find the asymptotes in the first case we solve the equation for y to get
 $$
