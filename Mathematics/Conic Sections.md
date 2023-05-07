@@ -1,3 +1,5 @@
+# Conic Sections
+
 **Conic sections** are the curves that are formed when a plane cuts a cone, as  
 shown in the figure. 
 For example, if a cone is cut horizontally, the cross  section is a circle. So a circle is a conic section. 
@@ -15,7 +17,8 @@ In this section we restrict our attention to parabolas that are situated with th
 at the origin and that have a vertical or horizontal axis of symmetry. 
 If the focus of such a parabola is  the point F(0, p), then the axis of symmetry must be vertical, and the directrix has the equation
 $$y = -p$$
-#### Deriving the Equation of a Parabola
+
+### Deriving the Equation of a Parabola
 If P(x, y) is any point on the parabola, then the distance from P to the focus F is 
 $$\sqrt{x^2+(y-p)^2}$$
 The distance from P to the directrix is:
@@ -33,7 +36,7 @@ x^2 = 4py
 $$
 
 
-#### Parabola with Vertical Axis
+### Parabola with Vertical Axis
 The graph of the equation $x^2=4py$ is a parabola with the following properties
 
 - Vertex: $V(0,0)$
@@ -44,7 +47,7 @@ The parabola opens upward if $p>0$ or downward if $p<0$.
 
 ![](/Resources/2023-05-07_14-08.png)
 
-#### Parabola with Horizontal Axis
+### Parabola with Horizontal Axis
 The graph of the equation $y^2=4px$ is a parabola with the following properties.
 
 - Vertex: $V(0,0)$
