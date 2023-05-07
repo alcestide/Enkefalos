@@ -6,13 +6,15 @@ Still too few .md files here but it'll be populated soon enough, hopefully. Vaul
 
 ### Current Topics
 - <code>Mathematics</code>
-  - Conics
+  - Conic Sections
 - <code>IT</code>
+  - Common Lisp
+  - Algorithms
 
 #### To-Do
 - [ ] Host Web-Page
 - [ ] Set-Up A Proper Folder Structure
-- [ ] 
+- [ ] Push Way Too Many Files So That I Can Barely Manage Them (???????)
 
 
 
