@@ -39,6 +39,7 @@ $$
 We solve for y in the first equation.
 
 $$y=1-2x$$
+
 Now we substitute for y in the second equation and solve for x.
 
 $$ 
@@ -81,7 +82,6 @@ Now we back-substitute x = 4 into one of the original equations and solve for y.
 choose the second equation because it looks simpler.
 
 $$
-
 \begin{aligned}
 x-2y=2 \\\\
 4-2y=2 \\\\
@@ -214,7 +214,6 @@ $$
 We need to change this to a triangular system, so we begin by  eliminating the x-term from the second equation
 
 $$
-
 \begin{aligned}
 x+2y-z=13& \\\
 \underline{\quad x-2y+3z=1}& \\\
@@ -307,16 +306,19 @@ As we see in the next example, a linear system  has no solution if we end up wit
 A **matrix** is simply a rectangular array of numbers. Matrices* are used to organize information into categories that correspond to the rows and columns of the matrix. 
 
 $$
-
 \begin{aligned}
 2x-y=5 \\\\
 x+4y=7
 \end{aligned}
-
 $$
 
 
-$$\begin{vmatrix}2 & -1 & 5\\1 & 4 & 7\end{vmatrix}$$
+$$
+\begin{vmatrix}
+2 & -1 & 5\\
+1 & 4 & 7
+\end{vmatrix}
+$$
 
 ## Definition of Matrix
 An $m \times n$ matrix is a rectangular array of numbers with m rows and n columns.
@@ -344,6 +346,11 @@ $$
 
 **Augmented matrix:**
 
-$$\begin{vmatrix}
- 3 & -2 & 1 & 5 \\1 & 3 & -1 & 0 \\ -1 & 0 \ & 4 & 11 
-\end{vmatrix}$$
+$$
+\begin{vmatrix}
+ 3 & -2 & 1 & 5 \\
+ 1 & 3 & -1 & 0 \\ 
+ -1 & 0 \ & 4 & 11 
+\end{vmatrix}
+$$
+
