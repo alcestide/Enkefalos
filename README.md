@@ -17,8 +17,9 @@ Still too few .md files here but it'll be populated soon enough, hopefully. Vaul
 
 #### To-Do
 - [x] Host Web-Page: Done (Kind of...)
+- [x] Implement Automatic Sync With Website
 - [ ] Set-Up A Proper Folder Structure
-- [ ] Implement Automatic Repository Git-Sync With Website
+
 
 
 
