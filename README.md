@@ -2,6 +2,8 @@
 ### Digital Neurons
 Notes, thoughts and an irrational attempt at organizing my **messy** mind. Topics range from **Math** and **CS**, to **Literature**, **Botany**, **Fitness** and... anything really. 
 
+Website hosted with Perlite: https://garden.alcestide.com/
+
 Still too few .md files here but it'll be populated soon enough, hopefully. Vault will also be **hosted** in the future.
 
 ### Current Topics
@@ -12,7 +14,7 @@ Still too few .md files here but it'll be populated soon enough, hopefully. Vaul
   - Algorithms
 
 #### To-Do
-- [ ] Host Web-Page
+- [x] Host Web-Page: Done (Kind of...)
 - [ ] Set-Up A Proper Folder Structure
 - [ ] Git Push Way Too Many Files So That I Can Barely Manage Them, Therefore Having To Start The Whole Process All Over Again(???)
 
