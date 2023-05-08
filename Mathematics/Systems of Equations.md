@@ -6,11 +6,13 @@ A solution of a system is an a**ssignment of values** for the variables that mak
 To solve a system means to find **all solutions** of the system.  
 Here is an example of a system of linear equations in two variables:
 
-$$
-\begin{cases}
+$$ 
+\left \{ 
+\begin{aligned}
 2x-y=5 \\\\
 x+4y=7
-\end{cases}
+\end{aligned}
+\right.
 $$
 We can check that x = 3 and y = 1 is a solution of this system.
 
@@ -23,23 +25,25 @@ equation to get an equation in one variable, then solve for that variable.
 expression found in Step 1 to solve for the remaining variable.
 
 ### Example 1 - Substitution Method
-$$
-\begin{cases}
+$$ 
+\left \{ 
+\begin{aligned}
 2x+y=1 \\\\
 3x+4y=14
-\end{cases}
+\end{aligned}
+\right.
 $$
 We solve for y in the first equation.
 $$y=1-2x$$
 Now we substitute for y in the second equation and solve for x.
-$$
-\begin{align}
+$$ 
+\begin{aligned}
 3x+4(1-2x)=14 \\\\
 3x+4-8x=14 \\\\
 -5x+4=14 \\\\
 -5x=10 \\\\
 x=-2 
-\end{align}
+\end{aligned}
 $$
 Next we back-substitute x=-2 into the equation y=1-2x
 
@@ -48,29 +52,33 @@ Next we back-substitute x=-2 into the equation y=1-2x
 2. **Add the Equations**. Add the two equations to eliminate one variable, then solve for the remaining variable.  
 3. **Back-Substitute**. Substitute the value that you found in Step 2 back into one of the original equations, and solve for the remaining variable.
 ### Example 2 - Elimination Method
-$$
-\begin{cases}
+$$ 
+\left \{ 
+\begin{aligned}
 3x+2y=14 \\\\
 x-2y=2
-\end{cases}
+\end{aligned}
+\right.
 $$
 Since the coefficients of the y terms are negatives of each other, we can add the equations to eliminate y.
 $$
-\begin{align}
+\begin{aligned}
 4x=16 \\\\
 x=4
-\end{align}
+\end{aligned}
 $$
 Now we back-substitute x = 4 into one of the original equations and solve for y. Let’s  
 choose the second equation because it looks simpler.
 
 $$
-\begin{align}
+
+\begin{aligned}
 x-2y=2 \\\\
 4-2y=2 \\\\
 -2y=-2 \\\\
 y=1
-\end{align}
+\end{aligned}
+
 $$
 
 ## Graphical Method
@@ -81,17 +89,21 @@ on the same screen.
 
 ### Example 3 - Graphical Method
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 1.35x - 2.13y = -2.36 \\\\
 2.16x+0.32y=1.06
-\end{cases}
+\end{aligned}
+\right.
 $$
 Solving for y in terms of x, we get the equivalent system
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 y= 0.63x + 1.11 \\\\
 y= -6.75x + 3.31
-\end{cases}
+\end{aligned}
+\right.
 $$
 ## Number of Solutions of a Linear System in Two Variables
 For a system of linear equations in two variables, exactly one of the following  
@@ -111,43 +123,53 @@ The following are two examples of systems of linear equations in **three** varia
 second system is in **triangular form**; that is, the variable x doesn’t appear in the second  equation, and the variables x and y do not appear in the third equation.
 
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y-z=1 \\\\
 -x+3y+3z=4 \\\\
 2x-3y+z=10
-\end{cases}
+\end{aligned}
+\right.
 $$
 
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y-z=1 \\\\
 y+2z=5 \\\\
 z=3 
-\end{cases}
+\end{aligned}
+\right.
 $$
 
 ### Example 1 - Solving a Triangular System Using Back Substitution
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y-z=1 \\\\
 y+2z=5 \\\\
 z=3
-\end{cases}
+\end{aligned}
+\right.
 $$
 From the last equation we know that z=3. We back-substitute this into the second equation and solve for y.
 $$
-\begin{align}
+\left \{ 
+\begin{aligned}
 y+2(3)=5 \\\\
 y=-1
-\end{align}
+\end{aligned}
+\right.
 $$
 Then we back-substitute y = 1 and z = 3 into the first equation and solve  for x.
 
 $$
-\begin{align}
+\left \{ 
+\begin{aligned}
 x-2(-1)-(3)=1 \\\\
 x=2
-\end{align}
+\end{aligned}
+\right.
 $$
 
 The solution of the system is x = 2, y = -1, z = 3. We can also write the solution  
@@ -156,61 +178,74 @@ as the ordered triple (2, -1, 3).
 ### Example 2 - Solving a System of Three Equations in Three Variables
 Solve the following system using **Gaussian** elimination:
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y+3z=1 \\\\
 x+2y-z=13 \\\\
 3x+2y-5z=3
-\end{cases}
+\end{aligned}
+\right.
 $$
 We need to change this to a triangular system, so we begin by  eliminating the x-term from the second equation
-$$\begin{align}
+$$
+
+\begin{aligned}
 x+2y-z=13& \\\
 \underline{\quad x-2y+3z=1}& \\\
 4y-4z=12&
-\end{align}$$
+\end{aligned}
+$$
 This gives us a new equivalent system that is one step closer to **triangular** form.
 
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y+3z=1 \\\\
 4y-4z=12 \\\\
 3x+2y-5z=3
-\end{cases}
+\end{aligned}
+\right.
 $$
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y+3z=1 \\\\
 4y-4z=12 \\\\
 8y-14z=0
-\end{cases}
+\end{aligned}
+\right.
 $$
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y+3z=1 \\\\
 4y-4z=12 \\\\
 -6z=-24
-\end{cases}
+\end{aligned}
+\right.
 $$
 $$
-\begin{cases}
+\left \{ 
+\begin{aligned}
 x-2y+3z=1 \\\\
 y-z=3 \\\\
 z=4
-\end{cases}
+\end{aligned}
+\right.
 $$
 We then use back-substitution to solve the system.
 $$
-\begin{align}
+\begin{aligned}
 y-(4)=3 \\\\
 y=7
-\end{align}
+\end{aligned}
 $$
 Now we back-substitute y=7 and z=4 and solve for x
 $$
-\begin{align}
+\begin{aligned}
 x-2(7)+3(4)=1 \\\\
 x=3
-\end{align}
+\end{aligned}
 $$
 The solution of the system is (3, 7, 4).
 
@@ -229,12 +264,14 @@ As we see in the next example, a linear system  has no solution if we end up wit
 A **matrix** is simply a rectangular array of numbers. Matrices* are used to organize information into categories that correspond to the rows and columns of the matrix. 
 
 $$
-\begin{cases}
+
+\begin{aligned}
 2x-y=5 \\\\
 x+4y=7
-\end{cases}
+\end{aligned}
+
 $$
-$$\begin{bmatrix}2 & -1 & 5\\1 & 4 & 7\end{bmatrix}$$
+$$\begin{vmatrix}2 & -1 & 5\\1 & 4 & 7\end{vmatrix}$$
 ## Definition of Matrix
 An $m \times n$ matrix is a rectangular array of numbers with m rows and n columns.
 We say that the matrix has dimension $m \times n$. The numbers $a_ij$ are the entries  
@@ -253,10 +290,11 @@ $$
 3x-2y+z=5 \\\\
 x+3y-=0 \\\\
 -x+4z=11
-\end{cases}
+\end{align}
+\right.
 $$
 
 **Augmented matrix:**
-$$\begin{bmatrix}
+$$\begin{vmatrix}
  3 & -2 & 1 & 5 \\1 & 3 & -1 & 0 \\ -1 & 0 \ & 4 & 11 
-\end{bmatrix}$$
+\end{vmatrix}$$

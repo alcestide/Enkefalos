@@ -26,13 +26,13 @@ $$| y - (-p) = | y + p |$$
 By the definition of a parabola these two distances must be equal.
 
 $$
-\begin{align}
+\begin{aligned}
 \sqrt{x^2+(y-p)^2 } = |y+p| \\\\
 x^2+(y-p)^2 = |y+p|^2 = (y+p)^2 \\\\
 x^2+y^2-2py+p^2=y^2+2py+p^2 \\\\
 x^2-2py=2py \\\\
 x^2 = 4py
-\end{align}
+\end{aligned}
 $$
 
 
@@ -69,7 +69,7 @@ the following definition.
 To obtain the simplest equation for an ellipse, we place the foci on the x-axis at $F_1(-c,0)$ and $F_2(c,0)$. We let the sum of the distances from a point on the ellipse to the foci be $2a$. Then if $P(x, y)$ is any point of the ellipse, we have
 
 $$
-\begin{align}
+\begin{aligned}
 d(P,F_1) + d(P,F_2)=2a \\\\\
 \sqrt{(x+c)^2+y^2}+\sqrt{(x-c)^2 + y^2} = 2a \\\\
 \sqrt{(x-c)^2+y^2}=2a-\sqrt{(x+c)^2+y^2} \\\\
@@ -81,7 +81,7 @@ a^2x^2+2a^2cx+a^2c^2+a^2y^2=a^4 + 2a^2cx + c^2x^2 \\\\
 \frac{x^2}a^2 + \frac{y^2}{a^2-c^2}=1 \\\\
 \frac{x^2}{a^2}+\frac{y^2}{b^2}=1 \ \ \ \ \ \ \ \ \ \ \ \ a>b\\\\
 \frac{x^2}{a^2}=1
-\end{align}
+\end{aligned}
 $$
 
 So $x^2=a^2$ or $x=\pm a$ , thus the ellipse crosses the x-axis at $(a,0)$ and $(-a,0)$.
@@ -102,13 +102,13 @@ tances from two fixed points $F_1$ and $F_2$ is a constant. These two fixed poin
 As in the case of the ellipse, we get the simplest  equation for the hyperbola by placing the foci on the x-axis at $(\pm c,0)$. By definition, if $P(x,y)$ lies on the hyperbola, then either $d(P,F_1)-d(P,F_2)$ or $d(P,F_2)-d(P,F_1)$ must equal some positive constant, which we call 2a. Thus we have:
 
 $$
-\begin{align}
+\begin{aligned}
 d(P,F_1)-d(P,F_2)=\pm 2a \\\\
 \sqrt{(x+c)^2+y^2}-\sqrt{(x-c)^2+y^2}=\pm 2a \\\\
 (c^2 - a^2)x^2 - a^2y^2 = a^2(c^2-a^2)\\\\
 \frac{x^2}{a^2}-\frac{y^2}{b^2}=1 \\\\
 \frac{x^2}{a^2}=\frac{y^2}{b^2}+1\ge 1
-\end{align}
+\end{aligned}
 $$
 
 The hyperbola  consists of two parts, called its branches. The segment joining the two vertices on the  separate branches is the transverse axis of the hyperbola, and the origin is called its center.  
@@ -119,8 +119,8 @@ bola. This leads to a hyperbola with a vertical transverse axis.
 
 The asymptotes are lines that the hyperbola approaches for large values of x and y. To find the asymptotes in the first case we solve the equation for y to get
 $$
-\begin{align}
+\begin{aligned}
 y=\pm \frac{b}{a}\sqrt{x^2-a^2} \\\\
 = \pm \frac{b}{a}x\sqrt{a-\frac{a^2}{x^2}}
-\end{align}
+\end{aligned}
 $$
