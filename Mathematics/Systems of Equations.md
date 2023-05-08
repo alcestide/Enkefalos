@@ -14,6 +14,7 @@ x+4y=7
 \end{aligned}
 \right.
 $$
+
 We can check that x = 3 and y = 1 is a solution of this system.
 
 ## Substitution Method
@@ -25,6 +26,7 @@ equation to get an equation in one variable, then solve for that variable.
 expression found in Step 1 to solve for the remaining variable.
 
 ### Example 1 - Substitution Method
+
 $$ 
 \left \{ 
 \begin{aligned}
@@ -33,9 +35,12 @@ $$
 \end{aligned}
 \right.
 $$
+
 We solve for y in the first equation.
+
 $$y=1-2x$$
 Now we substitute for y in the second equation and solve for x.
+
 $$ 
 \begin{aligned}
 3x+4(1-2x)=14 \\\\
@@ -45,6 +50,7 @@ $$
 x=-2 
 \end{aligned}
 $$
+
 Next we back-substitute x=-2 into the equation y=1-2x
 
 ## Elimination Method
@@ -52,6 +58,7 @@ Next we back-substitute x=-2 into the equation y=1-2x
 2. **Add the Equations**. Add the two equations to eliminate one variable, then solve for the remaining variable.  
 3. **Back-Substitute**. Substitute the value that you found in Step 2 back into one of the original equations, and solve for the remaining variable.
 ### Example 2 - Elimination Method
+
 $$ 
 \left \{ 
 \begin{aligned}
@@ -60,13 +67,16 @@ x-2y=2
 \end{aligned}
 \right.
 $$
+
 Since the coefficients of the y terms are negatives of each other, we can add the equations to eliminate y.
+
 $$
 \begin{aligned}
 4x=16 \\\\
 x=4
 \end{aligned}
 $$
+
 Now we back-substitute x = 4 into one of the original equations and solve for y. Let’s  
 choose the second equation because it looks simpler.
 
@@ -78,8 +88,8 @@ x-2y=2 \\\\
 -2y=-2 \\\\
 y=1
 \end{aligned}
-
 $$
+
 
 ## Graphical Method
 
@@ -88,6 +98,7 @@ on the same screen.
 2. **Find the Intersection Point(s)**. The solutions are the x- and y-coordinates of  the point(s) of intersection.
 
 ### Example 3 - Graphical Method
+
 $$
 \left \{ 
 \begin{aligned}
@@ -96,7 +107,9 @@ $$
 \end{aligned}
 \right.
 $$
+
 Solving for y in terms of x, we get the equivalent system
+
 $$
 \left \{ 
 \begin{aligned}
@@ -105,6 +118,7 @@ y= -6.75x + 3.31
 \end{aligned}
 \right.
 $$
+
 ## Number of Solutions of a Linear System in Two Variables
 For a system of linear equations in two variables, exactly one of the following  
 is true.  
@@ -132,6 +146,8 @@ x-2y-z=1 \\\\
 \right.
 $$
 
+
+
 $$
 \left \{ 
 \begin{aligned}
@@ -142,7 +158,9 @@ z=3
 \right.
 $$
 
+
 ### Example 1 - Solving a Triangular System Using Back Substitution
+
 $$
 \left \{ 
 \begin{aligned}
@@ -152,7 +170,9 @@ z=3
 \end{aligned}
 \right.
 $$
+
 From the last equation we know that z=3. We back-substitute this into the second equation and solve for y.
+
 $$
 \left \{ 
 \begin{aligned}
@@ -161,7 +181,9 @@ y=-1
 \end{aligned}
 \right.
 $$
+
 Then we back-substitute y = 1 and z = 3 into the first equation and solve  for x.
+
 
 $$
 \left \{ 
@@ -172,11 +194,13 @@ x=2
 \right.
 $$
 
+
 The solution of the system is x = 2, y = -1, z = 3. We can also write the solution  
 as the ordered triple (2, -1, 3).
 
 ### Example 2 - Solving a System of Three Equations in Three Variables
 Solve the following system using **Gaussian** elimination:
+
 $$
 \left \{ 
 \begin{aligned}
@@ -186,7 +210,9 @@ x+2y-z=13 \\\\
 \end{aligned}
 \right.
 $$
+
 We need to change this to a triangular system, so we begin by  eliminating the x-term from the second equation
+
 $$
 
 \begin{aligned}
@@ -195,7 +221,9 @@ x+2y-z=13& \\\
 4y-4z=12&
 \end{aligned}
 $$
+
 This gives us a new equivalent system that is one step closer to **triangular** form.
+
 
 $$
 \left \{ 
@@ -206,6 +234,9 @@ x-2y+3z=1 \\\\
 \end{aligned}
 \right.
 $$
+
+
+
 $$
 \left \{ 
 \begin{aligned}
@@ -215,6 +246,10 @@ x-2y+3z=1 \\\\
 \end{aligned}
 \right.
 $$
+
+
+
+
 $$
 \left \{ 
 \begin{aligned}
@@ -224,6 +259,9 @@ x-2y+3z=1 \\\\
 \end{aligned}
 \right.
 $$
+
+
+
 $$
 \left \{ 
 \begin{aligned}
@@ -233,20 +271,25 @@ z=4
 \end{aligned}
 \right.
 $$
+
 We then use back-substitution to solve the system.
+
 $$
 \begin{aligned}
 y-(4)=3 \\\\
 y=7
 \end{aligned}
 $$
+
 Now we back-substitute y=7 and z=4 and solve for x
+
 $$
 \begin{aligned}
 x-2(7)+3(4)=1 \\\\
 x=3
 \end{aligned}
 $$
+
 The solution of the system is (3, 7, 4).
 
 ## The Number of Solutions of a Linear System
@@ -271,7 +314,10 @@ x+4y=7
 \end{aligned}
 
 $$
+
+
 $$\begin{vmatrix}2 & -1 & 5\\1 & 4 & 7\end{vmatrix}$$
+
 ## Definition of Matrix
 An $m \times n$ matrix is a rectangular array of numbers with m rows and n columns.
 We say that the matrix has dimension $m \times n$. The numbers $a_ij$ are the entries  
@@ -286,15 +332,18 @@ Here is an example.
 **Linear system:**
 
 $$
-\begin{cases}
+\left \{
+\begin{aligned}
 3x-2y+z=5 \\\\
 x+3y-=0 \\\\
 -x+4z=11
-\end{align}
+\end{aligned}
 \right.
 $$
 
+
 **Augmented matrix:**
+
 $$\begin{vmatrix}
  3 & -2 & 1 & 5 \\1 & 3 & -1 & 0 \\ -1 & 0 \ & 4 & 11 
 \end{vmatrix}$$
