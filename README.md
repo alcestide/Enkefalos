@@ -2,7 +2,7 @@
 ### Digital Neurons
 Notes, thoughts and an irrational attempt at organizing my **messy** mind. Topics range from **Math** and **CS**, to **Literature**, **Botany**, **Fitness** and... anything really. 
 
-Website hosted with Perlite: https://garden.alcestide.com/
+Website hosted with Perlite (not yet automatically synced): https://garden.alcestide.com/
 
 ![2023-05-08_12-05](https://user-images.githubusercontent.com/106203061/236796930-67c624f5-9841-485b-9342-191b1141cda1.png)
 
@@ -18,7 +18,7 @@ Still too few .md files here but it'll be populated soon enough, hopefully. Vaul
 #### To-Do
 - [x] Host Web-Page: Done (Kind of...)
 - [ ] Set-Up A Proper Folder Structure
-- [ ] Git Push Way Too Many Files So That I Can Barely Manage Them, Therefore Having To Start The Whole Process All Over Again(???)
+- [ ] Implement Automatic Repository Git-Sync With Website
 
 
 
