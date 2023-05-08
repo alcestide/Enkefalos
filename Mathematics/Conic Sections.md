@@ -118,6 +118,7 @@ bola. This leads to a hyperbola with a vertical transverse axis.
 ![](/Resources/2023-05-07_14-50.png)
 
 The asymptotes are lines that the hyperbola approaches for large values of x and y. To find the asymptotes in the first case we solve the equation for y to get
+
 $$
 \begin{aligned}
 y=\pm \frac{b}{a}\sqrt{x^2-a^2} \\\\
