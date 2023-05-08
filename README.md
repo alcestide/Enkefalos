@@ -4,6 +4,8 @@ Notes, thoughts and an irrational attempt at organizing my **messy** mind. Topic
 
 Website hosted with Perlite: https://garden.alcestide.com/
 
+![2023-05-08_12-05](https://user-images.githubusercontent.com/106203061/236796930-67c624f5-9841-485b-9342-191b1141cda1.png)
+
 Still too few .md files here but it'll be populated soon enough, hopefully. Vault will also be **hosted** in the future.
 
 ### Current Topics
