@@ -4,22 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "9b402408fa8caf0a",
+        "id": "bcc6b08d85ebf914",
         "type": "tabs",
         "children": [
           {
-            "id": "ab877ebe835fe2d1",
+            "id": "0e7a31af40f0f5dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathematics/Conic Sections.md",
+                "file": "Mathematics/Systems of Equations.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f0cb7554c6914b08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IT/Cyclic Redundancy Check.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "793cbd2341b14dc9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IT/Cyclic Redundancy Check.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -69,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 522.0086555480957
+    "width": 522.0086555480957,
+    "collapsed": true
   },
   "right": {
     "id": "310b2ef59d375db0",
@@ -85,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mathematics/Conic Sections.md",
+                "file": "IT/Cyclic Redundancy Check.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mathematics/Conic Sections.md",
+                "file": "IT/Cyclic Redundancy Check.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mathematics/Conic Sections.md"
+                "file": "IT/Cyclic Redundancy Check.md"
               }
             }
           }
@@ -148,18 +174,26 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ab877ebe835fe2d1",
+  "active": "2cfb89522350064d",
   "lastOpenFiles": [
-    "IT/Basic Lattice Theory.md",
+    "README.md",
+    "IT/Hilbert's Curve.md",
+    "Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg",
+    "Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg.crdownload",
+    "Resources/2023-05-08_21-11.png",
+    "IT/Cyclic Redundancy Check.md",
     "Mathematics/Systems of Equations.md",
+    "Mathematics/Basic Lattice Theory.md",
+    "Resources/paritybit.jpeg",
+    "Mathematics/Conic Sections.md",
+    "Mathematics/Mathematics.md",
+    "Mathematics/Pre-Calculus Topics.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-181548-SPHW43T.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-201352-2NJ2NUQ.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-201419-2NJ2NUQ.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-181412-SPHW43T.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-200522-2NJ2NUQ.md",
     "Mathematics/Conic Sections.sync-conflict-20230508-200322-2NJ2NUQ.md",
-    "Mathematics/Pre-Calculus Topics.md",
-    "Mathematics/Conic Sections.md",
     "IT/ANSI Common Lisp.md",
     "IT/Discretionary Access Control.md",
     "IT/Dynamic Host Configuration Protocol (DHCP).md",

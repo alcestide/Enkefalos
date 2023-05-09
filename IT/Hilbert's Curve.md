@@ -1,0 +1,74 @@
+In 1890, Giuseppe Peano discovered a planar curve with the rather surprising property that it is “space-filling.” The curve winds around the unit square and hits every point (_x, y_) at least once.
+
+Peano’s curve is based on dividing each side of the unit square into three equal parts, which divides the square into nine smaller squares. His curve traverses these nine squares in a certain order. Then, each of the nine small squares is similarly divided into nine still smaller squares, and the curve is modified to traverse all these squares in a certain order. The curve can be described using fractions expressed in base 3; in fact, that’s the way Peano first described it.
+
+In 1891, David Hilbert [Hil] discovered a variation of Peano’s curve based on dividing each side of the unit square into two equal parts, which divides the square into four smaller squares. Then, each of the four small squares is similarly divided into four still smaller squares, and so on. For each stage of this division, Hilbert gives a curve that traverses all the squares. Hilbert’s curve, sometimes called the “Peano-Hilbert curve,” is the limit curve of this division process. It can be described using fractions expressed in base 2.
+
+![](Resources/2023-05-08_21-11.png)
+
+Here, we do things a little differently. We use the term “Hilbert curve” for any of the curves on the sequence whose limit is the Hilbert space-filling curve. The “Hilbert curve of order _n_” means the nth curve in the sequence.
+
+![](Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg)
+
+(Hilbert curves of orders 1–6.)
+
+The order 1 inverted U is converted into the order 2 Y-shaped curve.
+We can regard the Hilbert curve of any order as a series of U-shaped curves of various orientations, each of which, except for the last, is followed by a unit step in a certain direction. In transforming a Hilbert curve of one order to the next, each U-shaped curve is transformed into a Y-shaped curve with the same general orientation, and each unit step is transformed to a unit step in the same direction.
+
+The transformation of the order 1 Hilbert curve (a U curve with a net direction to the right and a clockwise rotational orientation) to the order 2 Hilbert curve goes as follows:
+
+1. Draw a U that goes up and has a counterclockwise rotation.
+2. Draw a step up.
+3. Draw a U that goes to the right and has a clockwise rotation.
+4. Draw a step to the right.
+5. Draw a U that goes to the right and has a clockwise rotation.
+6. Draw a step down.
+7. Draw a U that goes down and has a counterclockwise rotation.
+
+
+```c
+#include <stdio.h>  
+#include <stdlib.h>  
+  
+int x = -1, y = 0;        // Global variables.  
+int s = 0;                // Dist. along curve.  
+int blen;                 // Length to print.  
+  
+void hilbert(int dir, int rot, int order);  
+  
+void binary(unsigned k, int len, char *s) {  
+/* Converts the unsigned integer k to binary character form. Result is string s of length len. */  
+  int i;  
+  
+  s[len] = 0;  
+  for (i = len - 1; i >= 0; i--) {  
+     if (k & 1) s[i] = ‘1’;  
+     else   s[i] = ‘0’;  
+     k = k >> 1;  
+  }  
+}  
+void step(int dir) {  
+   char ii[33], xx[17], yy[17];  
+  
+   switch(dir & 3) {  
+      case 0: x = x + 1; break;  
+      case 1: y = y + 1; break;  
+      case 2: x = x - 1; break;  
+      case 3: y = y - 1; break;  
+   }  
+   binary(s, 2*blen, ii);  
+   binary(x, blen, xx);  
+   binary(y, blen, yy);  
+   printf("%5d %s %s %s\n", dir, ii, xx, yy);  
+   s = s + 1;             // Increment distance.  
+}  
+int main(int argc, char *argv[]) {  
+   int order;  
+  
+   order = atoi(argv[1]);  
+   blen = order;  
+   step(0);               // Print init. point.  
+   hilbert(0, 1, order);  
+   return 0;  
+}
+```
