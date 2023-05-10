@@ -4,47 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "bcc6b08d85ebf914",
+        "id": "0d5337c0bd557abf",
         "type": "tabs",
         "children": [
           {
-            "id": "0e7a31af40f0f5dc",
+            "id": "0ac8effa4bdc8377",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Mathematics/Systems of Equations.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f0cb7554c6914b08",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "IT/Cyclic Redundancy Check.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "793cbd2341b14dc9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "IT/Cyclic Redundancy Check.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 522.0086555480957,
-    "collapsed": true
+    "width": 522.0086555480957
   },
   "right": {
     "id": "310b2ef59d375db0",
@@ -111,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "IT/Cyclic Redundancy Check.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "IT/Cyclic Redundancy Check.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "IT/Cyclic Redundancy Check.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -176,17 +142,30 @@
   },
   "active": "2cfb89522350064d",
   "lastOpenFiles": [
+    "IT/Evaluating Combinations.md",
+    "IT/Expressions (Lisp).md",
+    "IT/Conditional Expressions and Predicates.md",
+    "IT/Naming and the Environment.md",
+    "IT/Ethernet and the IEEE 802 LAN-MAN Standards.md",
+    "IT/Dynamic Host Configuration Protocol (DHCP).md",
+    "IT/Discretionary Access Control.md",
+    "IT/Cyclic Redundancy Check.md",
+    "IT/Compound Procedures.md",
+    "IT/The Substitution Model for Procedure Application.md",
+    "Compound Procedures].md",
+    "IT/The Elements of Programming.md",
+    "IT/Programming Algorithms in Lisp.md",
+    "Resources/b24dfe3e-4963-4df4-8a83-35ad9850944e.gif",
+    "Mathematics/Mathematics.md",
+    "Mathematics/Systems of Equations.md",
     "README.md",
     "IT/Hilbert's Curve.md",
     "Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg",
     "Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg.crdownload",
     "Resources/2023-05-08_21-11.png",
-    "IT/Cyclic Redundancy Check.md",
-    "Mathematics/Systems of Equations.md",
     "Mathematics/Basic Lattice Theory.md",
     "Resources/paritybit.jpeg",
     "Mathematics/Conic Sections.md",
-    "Mathematics/Mathematics.md",
     "Mathematics/Pre-Calculus Topics.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-181548-SPHW43T.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-201352-2NJ2NUQ.md",
@@ -194,18 +173,7 @@
     "Mathematics/Systems of Equations.sync-conflict-20230508-181412-SPHW43T.md",
     "Mathematics/Systems of Equations.sync-conflict-20230508-200522-2NJ2NUQ.md",
     "Mathematics/Conic Sections.sync-conflict-20230508-200322-2NJ2NUQ.md",
-    "IT/ANSI Common Lisp.md",
-    "IT/Discretionary Access Control.md",
-    "IT/Dynamic Host Configuration Protocol (DHCP).md",
-    "IT/GNU Privacy Guard.md",
-    "IT/OpenSSL and Let's Encrypt.md",
-    "IT/SELinux.md",
-    "IT/Ethernet and the IEEE 802 LAN-MAN Standards.md",
-    "IT/Programming Algorithms in Lisp.md",
     "Untitled.canvas",
-    "Fitness/Workout Plan No.1.md",
-    "Ports - Daemons.md",
-    "Monthly Billings.md",
     "Fitness",
     "IT",
     "Resources/2023-05-07_14-50.png",
