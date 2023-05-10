@@ -739,3 +739,43 @@ down.
 
 ## Linked Lists
 
+**Linked** data structures are in many ways the *opposite* of the contiguous ones that we have explored to some extent in the previous chapter  using the example of arrays. In terms of complexity, they fail where  those ones shine (first of all, at random access), but prevail at scenarios  when a repeated modiication is necessary. In general, they are much  more lexible and so allow the programmer to represent almost any  kind of a data structure, although the ones that require such level of  lexibility may not be too frequent. Usually, they are specialized trees or  graphs.  
+The basic linked data structure is a singly linked list.
+
+Just like arrays, lists in Lisp may be created both with a literal  
+syntax for constants and by calling a function—make-list—that  
+creates a list of a certain size illed with nil elements. Besides, there’s  
+a handy list utility that is used to create lists with the speciied  
+content (the analog of rtl:vec):
+
+```lisp
+CL-USER> '("hello" world 111)  
+("hello" WORLD 111)  
+CL-USER> (make-list 3)  
+(NIL NIL NIL)  
+CL-USER> (list "hello" 'world 111)  
+("hello" WORLD 111)
+```
+
+
+## Lists as Sequences
+Alongside arrays, list is the other basic data structure that implements the sequence abstract data type. Let’s consider the complexity of basic sequence operations for linked lists:  
+
+- So-called random access, that is, access by index of a random  
+element, requires O(n) time as we have to traverse all the preceding  
+elements before we can reach the desired one (n/2 operations on  
+average).  
+- Yet, once we have reached some element, removing it or inserting  
+something after it takes O(1).  
+- Subsequencing is also O(n).  
+
+Getting the list length, in the basic case, is also O(n), that is, it  
+requires full list traversal. It is possible, though, to store list length as a  
+separate slot, tracking each change on the ly, which means O(1)  
+complexity. Lisp, however, implements the simplest variant of lists  
+without size tracking. 
+
+This is an example of a small but important  decision that real-world programming is full of. Why is such a solution  the right thing in this case? Adding the size counter to each list would  have certainly made this common length operation more effective,  but the cost of doing that would’ve included increase in occupied  storage space for all lists, a need to update size in all list modiication  operations, and, possibly, a need for a more complex cons cell implementation.
+
+## Lists as Functional Data Structures
+Singly linked lists are a simple example of functional data structures. A functional or persistent data structure is the one that doesn’t allow in-place modiication. In other words, to alter the contents of the structure, a fresh copy with the desired changes should be created. The lexibility of linked data structures makes them suitable for serving as functional ones. We have seen the cons operation that is one of the earliest examples of nondestructive, that is, functional, modiication. This action prepends an element to the head of a list, and  as we’re dealing with the singly linked list, the original doesn’t have to be updated: a new cons cell is added in front of it with its next pointer referencing the original list that becomes the new tail. This way, we can both preserve the pointer to the original head and add a new head
