@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0d5337c0bd557abf",
+        "id": "756802d4e79c1300",
         "type": "tabs",
         "children": [
           {
-            "id": "0ac8effa4bdc8377",
+            "id": "0e134aec42574659",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -81,6 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "IT/On Main Methods of GPS (General Problem Solver) - Newell and Simon's, Human Problem Solving, 1972.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "IT/On Main Methods of GPS (General Problem Solver) - Newell and Simon's, Human Problem Solving, 1972.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +120,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "IT/On Main Methods of GPS (General Problem Solver) - Newell and Simon's, Human Problem Solving, 1972.md"
+              }
             }
           }
         ],
@@ -142,37 +146,37 @@
   },
   "active": "2cfb89522350064d",
   "lastOpenFiles": [
-    "IT/Evaluating Combinations.md",
-    "IT/Expressions (Lisp).md",
+    "IT/On Main Methods of GPS (General Problem Solver) - Newell and Simon's, Human Problem Solving, 1972.md",
+    "IT/A Guide to Lisp Style.md",
+    "IT/ANSI Common Lisp.md",
+    "IT/Compound Procedures.md",
     "IT/Conditional Expressions and Predicates.md",
-    "IT/Naming and the Environment.md",
+    "IT/Cyclic Redundancy Check.md",
     "IT/Ethernet and the IEEE 802 LAN-MAN Standards.md",
     "IT/Dynamic Host Configuration Protocol (DHCP).md",
-    "IT/Discretionary Access Control.md",
-    "IT/Cyclic Redundancy Check.md",
-    "IT/Compound Procedures.md",
-    "IT/The Substitution Model for Procedure Application.md",
-    "Compound Procedures].md",
-    "IT/The Elements of Programming.md",
+    "IT/Evaluating Combinations.md",
+    "IT/Expressions (Lisp).md",
+    "IT/GNU Privacy Guard.md",
+    "IT/Middleware functions.md",
+    "IT/Naming and the Environment.md",
     "IT/Programming Algorithms in Lisp.md",
+    "IT/Regular Expressions.md",
+    "IT/SELinux.md",
+    "IT/Special Forms Lisp.md",
+    "IT/The Elements of Programming.md",
+    "IT/The Substitution Model for Procedure Application.md",
+    "Special Forms for Conditionals.md",
+    "IT/Special Forms for Definitions.md",
+    "Mathematics/Basic Lattice Theory.md",
+    "Priority Queue.md",
+    "IT/Discretionary Access Control.md",
+    "Compound Procedures].md",
     "Resources/b24dfe3e-4963-4df4-8a83-35ad9850944e.gif",
     "Mathematics/Mathematics.md",
-    "Mathematics/Systems of Equations.md",
-    "README.md",
-    "IT/Hilbert's Curve.md",
     "Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg",
     "Resources/c4d6108b-e83a-44e2-8fa5-20e46745fab1.jpeg.crdownload",
     "Resources/2023-05-08_21-11.png",
-    "Mathematics/Basic Lattice Theory.md",
     "Resources/paritybit.jpeg",
-    "Mathematics/Conic Sections.md",
-    "Mathematics/Pre-Calculus Topics.md",
-    "Mathematics/Systems of Equations.sync-conflict-20230508-181548-SPHW43T.md",
-    "Mathematics/Systems of Equations.sync-conflict-20230508-201352-2NJ2NUQ.md",
-    "Mathematics/Systems of Equations.sync-conflict-20230508-201419-2NJ2NUQ.md",
-    "Mathematics/Systems of Equations.sync-conflict-20230508-181412-SPHW43T.md",
-    "Mathematics/Systems of Equations.sync-conflict-20230508-200522-2NJ2NUQ.md",
-    "Mathematics/Conic Sections.sync-conflict-20230508-200322-2NJ2NUQ.md",
     "Untitled.canvas",
     "Fitness",
     "IT",

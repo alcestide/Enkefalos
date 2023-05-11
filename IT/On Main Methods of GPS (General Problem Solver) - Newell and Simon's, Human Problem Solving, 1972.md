@@ -1,0 +1,15 @@
+>The main methods of GPS jointly embody the heuristic of means-ends analysis. Mean-sends analysis is typified by the following kind of common-sense  
+argument:  
+
+>"I want to take my son to nursery school. What's the difference  
+between what I have and what I want? One of distance. What  
+changes distance? My automobile. My automobile won't work.  
+What is needed to make it work? A new battery. What has new  
+batteries? An auto repair shop. I want the repair shop to put in a  
+new battery; but the shop doesn't know I need one. What is the  
+difficulty? One of communication. What allows communication?  
+A telephone... and so on. "
+
+>The kind of analysis-classifying things in terms of the functions they serve and  
+oscillating among ends, functions required, and means that perform them-forms  
+the basic system of heuristic of GPS
