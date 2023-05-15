@@ -1,0 +1,14 @@
+*Discretionary Access Control* (DAC) really just means that each user
+has the ability to control who can get into their stuff. If I wanted to
+open my home directory so that every other user on the system can get
+into it, I could do that. Having done so, I could then control who can
+access each specific file.
+
+- Using chown to change the ownership of files and directories\\
+- Using chmod to set permissions on files and directories\\
+- What the Set User ID (SUID) and the Set Group ID (SGID) settings can
+  do for us on regular files\\
+- The security implications of having the SUID and SGID permissions set
+  on files that don't need them\\
+- How to use extended file attributes to protect sensitive files\\
+- Securing system configuration files

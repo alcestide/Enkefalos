@@ -1,7 +1,0 @@
-Structure that implements a set S of elements, and each of these elements is associated with a key.
-
-`Insert(S,x): insert element x into set S`
-`max(S): return element of S with the largest key`
-`extract_max(S): ... and remove it from S`
-`increase_key(S,x,k): increase the value of x's key to the new value k`
-

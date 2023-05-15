@@ -1,0 +1,25 @@
+** Start and End of the Line
+:PROPERTIES:
+:CUSTOM_ID: start-and-end-of-the-line
+:END:
+Probably the easiest metacharacters to understand are ^ (caret) and $
+(dollar),\\
+which represent the start and end, respectively, of the line of text as
+it is being\\
+checked.
+
+The regular expression cat finds c ⋅ a ⋅ t anywhere on the\\
+line, but ˆcat matches only if the c ⋅ a ⋅ t is at the beginning of the
+line --- the ˆ is\\
+used to effectively anchor the match (of the rest of the regular
+expression) to the\\
+start of the line. Similarly, cat finds c ⋅ a ⋅ t only at the end of the
+line, such as a line ending with scat.
+
+** Character Classes
+:PROPERTIES:
+:CUSTOM_ID: character-classes
+:END:
+Matching any one of several characters
+
+[ ]

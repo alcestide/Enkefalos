@@ -1,0 +1,13 @@
+When we describe a language, we should pay particular attention to the
+means that the language provides for combining simple ideas to form more
+complex ideas. Every powerful language has three mechanisms for
+accomplishing this:
+
+- primitive expressions, which reperesent the simplest entitiest the
+  language is concerned with
+- means on combination, by which compound elements are built from
+  simpler ones, and
+- means of abstraction, by which compound elements can be named an
+  manipulated as units
+
+In programming, we deal with two kinds of elements: procedures and data.

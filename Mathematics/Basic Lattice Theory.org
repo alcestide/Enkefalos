@@ -1,0 +1,18 @@
+A *lattice* is a *poset* which has finite meets and joins. A complete
+lattice is a poset which has arbitrary meets and joins.
+
+A poset X which has finite meets is called a meet-semilattice; a
+join-semilattice is defined analogously. We shall want to consider
+functional relations between such structures; those we consider will
+usually preserve structure and are known in general as *homomorphisms*.
+
+Thus, a *homomorphism* of lattices is a function \(f: X \rightarrow Y\)
+(with X and Y lattices) which preserve finite meets and joins, that is
+\(f(x \land y)=f(x) \land f(y)\) and \(f(x \lor y)=f(x) \lor f(y)\).
+Note that such a function is automatically *monotone*. A homomorphism of
+complete lattices is a function \(f: X \rightarrow Y\) (with X and Y
+complete lattices) which preserves meets and joins.
+
+\(N, Z, Q, R\) are lattices with their usual order, where binary meets
+and joins are given by taking minima and maxima; for example in \(N\),
+\(3 \lor 5 = min\{3,5\}=3\) .

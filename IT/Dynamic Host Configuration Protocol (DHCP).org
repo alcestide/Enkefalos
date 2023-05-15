@@ -1,0 +1,62 @@
+DHCP [RFC2131] is a popular *client/server protocol* used to assign
+configuration\\
+information to hosts (and, less frequently, to routers).
+
+DHCP is very widely used,\\
+in both enterprises and home networks. Even the most basic home router
+devices\\
+support embedded DHCP servers.
+
+DHCP clients are incorporated into all common client operating systems
+and a large number of *embedded* devices such as net- work printers and
+VoIP phones. Such devices usually use DHCP to acquire their IP address,
+subnet mask, router IP address, and DNS server IP address. Information
+pertaining to other services (e.g., SIP servers used with VoIP) may also
+be conveyed using DHCP.
+
+The design of DHCP is based on an earlier protocol called the *Internet
+Boot-\\
+strap Protocol* (*BOOTP*) [RFC0951][RFC1542], which is now effectively
+obsolete.
+
+BOOTP provides limited configuration information to clients and does not
+have\\
+a mechanism to support changing that information after it has been
+provided.\\
+DHCP extends the BOOTP model with the concept of *leases* [GC89] and can
+pro-\\
+vide all information required for a host to operate. Leases allow
+clients to use\\
+the configuration information for an agreed-upon amount of time. A
+client may request to renew the lease and continue operations, subject
+to agreement from the DHCP server.
+
+BOOTP and DHCP are *backward-compatible* in the sense that BOOTP-only
+clients can make use of DHCP servers and DHCP clients can make use of
+BOOTP-only servers. BOOTP, and therefore DHCP as well, is carried using
+UDP/IP (see Chapter 10). Clients use port 68 and servers use port 67.
+DHCP comprises two major parts: address management and delivery of
+configuration data.
+
+Address management handles the dynamic allocation of IP addresses and
+provides address leases to clients. Configuration data delivery includes
+the DHCP protocol's message formats and state machines. A DHCP server
+can be configured to provide three levels of address allocation:
+*automatic allocation*, *dynamic allocation*, and *manual allocation*.
+The differences among the three have to do with whether the addresses
+assigned are based on the identity of the client and whether such
+addresses are subject to being revoked or changed.
+
+The most commonly used method is dynamic allocation, whereby a client is
+given\\
+a *revocable IP* address from a *pool* (usually a predefined range) of
+addresses con-\\
+figured at the server. In automatic allocation, the same method is used
+but the\\
+address is never revoked. In manual allocation, the DHCP protocol is
+used to con-\\
+vey the address, but the address is fixed for the requesting client
+(i.e., it is not part\\
+of an allocatable pool maintained by the server). In this last mode,
+DHCP acts like\\
+BOOTP.
