@@ -1034,3 +1034,74 @@ However, the number of positions, in chess, that comes up during the analysis is
 *** LFU
 An algorithm that uses a counter instead of a lag will be called least frequently used (LFU) item eviction.There is one problem though: the access counter will only grow overtime, so some items that were heavily used during some period willnever be evicted from the cache, even though they may never be accessed again.
 To counteract this accumulation property, which is similar to bitmap saturation we’ve seen in the previous algorithm, a similar measure can be applied. Namely, we’ll have to introduce some notion of epochs, which reset or diminish the value of all counters. The most common approach to epochs is to right shift each counter, that is, divide by 2. This strategy is called aging . An LFU cache with aging may be called LRFU—least recently/frequently used.
+
+*** LRU
+Is an alternative to LRU, evict the item that was used the longest time ago. LRU means that we need to store either last-access timestamps or some generation/epoch counters. Another possibility is to utilize access coutners, similar to the ones that were used for LFU,
+
+
+** Hash-Tables
+The basic properties of hash-tables are average O(1) access and support for arbitrary keys. These features can be realized by storing the items in an array at indices determined by a specialized function that maps the keys in a pseudo-random way.
+
+*** Dealing with Collisions
+Even better would be if there were no collisions (situations where two or more keys are mapped to the same index). For dynamic hash-tables, we have to accept that collisions are inevitable.
+
+The probability of collisions isgoverned by an interesting phenomenon called “the Birthday Paradox.”Let’s say we have a group of peopleof some size, for instance, 20. What is the probability that two of them have birthdays on the same date?
+It may seem quite improbable, considering that there are 365 days in a year and we are talking just about a handful of people. But if you take into account that we need to examine each pair of people to learn about their possible birthday collision, that will give us (/ (* 20 19) 2), that is, 190 pairs.
+We can calculate the exact probability by taking the complement to the probability that no one has a birthday collision, which is easier to reason about. The probability that two people don’t share their birthday is (/ (- 365 1) 365): there’s only one chance in 365 that they do.
+For three people, we can use the chain rule and state that the probability that they don’t have a birthday collision is a product of the probability that any two of them don’t have it and that the third person also doesn’t share a birthday with any of them.
+This results in (* (/364 365) (/ (- 365 2) 365)). The value (- 365 2) refers to the third person not having abirthday intersection with neither the first nor the second individually, and those are distinct, as we have already asserted in the first term.
+Continuing in such fashion, we can count the number for 20 persons:
+
+#+begin_src lisp :tangle yes
+(defun birthday-collision-prob (n)
+    (let (rez 1))
+        (dotimes (i n)
+          (setf rez (* rez (/ (- 365 i) 365))))
+#+end_src
+
+#+begin_src lisp :tangle yes
+CL-USER> (birthday-collision-prob 20)
+0.4114384
+#+end_src
+
+So among 20 people there's already a 40% chance of observing a coinciding birthday.
+Well, if you substitute keys for persons and the array size for the number of days in a year, you'll get the formula of the probability of at least one collision among the hashed keys in an array, provided the hash-function produces perfectly uniform output.
+
+#+begin_src lisp :tangle yes
+(defun hash-collision-prob (n size)
+    (let ((rez 1))
+        (dotimes i n))
+            (setf rez (* rez (/ (- size i) size))))
+    (- 1.0 rez)
+
+#+end_src
+
+Let's say we have ten keys. What should be the array size to be safe against collisions?
+
+#+begin_src lisp :tangle yes
+CL-USER> (hash-collision-prob 10 10)
+0.9996371
+#+end_src
+
+Which means we don't stand a chance to accidentally get a perfect layout. Collisions /ARE/ inevitable.
+How can we deal with this issue? We need to have a fallback option: when two keys hash to the same index, store both of them inside a list. The retrieval operation in this case will require a sequential scan to find the requested key and return the corresponding value. Such an approach is called /chaining/.
+It has a number of drawbacks:
+
+- It complicates the implementation: now we have to deal with both a static array and a dynamic list/array/tree.
+- It requires more memory
+- It will have poor performance due to the necessity of dealing with a linked structure and, what's worse, not respecting cache locality: the chain won't fit in the original array so at least one additional RAM round-trip will be required.
+
+The more widely used alternative to chaining is called "*open addressing*" or "*closed hashing*". With ith, the chains are, basically, stored in the same backing array. The algorithm is simple: when the calculated hash is pointing at an already occupied slot in the array, find the next vacant slot by cycling over the array. If the table isn't full, we're guaranteed to find one. If it isfull, we need to resize it first. Now, when the element is retrieved by key, we need to perform the same procedure: calculate the hash and then compare the key of the item at the returned index. If the keys are the same, we've found the desired item, otherwise we need to cycle over the array comparing keys.
+
+An hash-table is priarily parametrized by two things: the hash function and the equality predicate. In Lisp, in particular, there's a choice of just the four standard equality predicates: eq,eql,equal and equalp
+The following approach is sufficient for the majority of the hash-table use case:
+
+- Use the eql predicate if the keys are numbers, characters or symbol.
+- Use equal if the keys are strings or lists of the mentioned items.
+- Use equalp if the keys are vectors, structs or anything else containing one of those.
+
+*** Advanced Hashing Techniques
+Beyond the direct implementation of open addressing called "*linear probing*" (for it tries to resolve collisions by performing a linear scan for an empty slot) a number of approaches were proposed to improve hash distribution and reduce the collision rate.
+The simplest modification of linear probing is called "*quadratic probing*". It operates by performing the search for the next vacant slot using the linear probing offsets that are just raised to the power 2.
+"*Double hashing*" is another simple alternative. This approach makes the sequence specific to each key, so the keys that map to the same location will have different possible variants of collision resolution.
+"*2-choice hashing*" also uses two hash-functions but selects the particular one for each key based on the distance from the original index it has to be moved for collision resolution.
