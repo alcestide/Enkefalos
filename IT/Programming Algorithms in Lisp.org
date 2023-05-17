@@ -1002,15 +1002,35 @@ clearly not ideal in terms of efficiency
 :PROPERTIES:
 :CUSTOM_ID: hash-tables
 :END:
+Hash-tables are probably the *most common* way to do key-values. They are dynamic and don't impose restrictions on keys while also having an amortized O(1) perfomance. They come in several different "flavors" and are the most versatile key-value variant and thus the default choice for such a structure.
+
 *** Structs
 :PROPERTIES:
 :CUSTOM_ID: structs
 :END:
+Structs may be considered a special *variant* of key-values with a predefined set of keys. In this respect, structs are similar to arrays, which have a fixed set of keys (from 0 to MAX_KEY).
+Generally, structs internally map to arrays, so they may be considered a layer of syntactic sugar that provides names for the keys and handy accessors
+
 *** Trees
 :PROPERTIES:
 :CUSTOM_ID: trees
 :END:
+Another versatile option for implementing kvs is by using trees. There are even more tree variants than hash-tables. The main advantage of trees compared to simple hash-tables is the possibility to impose some ordering on the keys. Also, trees don't require hashing.
+
 *** Operations
 :PROPERTIES:
 :CUSTOM_ID: operations
 :END:
+The primary operation for a kv structure is access to its elements by key: to set, change and remove. As there are so many different variants of concrete vkvs, there are a number of different low-level access operations.
+
+*** Memoization
+One of the major use cases for key-valuse is *memoization*, which is storing the results of previous computations in a dedicated table (cache) to avoid recalculating them.
+/Transposition tables/ are a characteristic example of the effective usage of memoization, which comes from a classic game AI. But the same approach may be applied in numerous other areas with lots of computation paths that converge and diverge at times.In such games as chess, the same position may be reached in a great variety of moves.
+
+All possible sequences are called *transpositions*, and it is obvious that, regardless of how we reached a certain position, if we have already analyzed that situation previously, we don’t need to repeat the analysis when it repeats. So caching the results allows avoiding a lot of redundant computation.
+
+However, the number of positions, in chess, that comes up during the analysis is huge, so we don’t stand a chance of remembering all of them. In this case, a good predictor for the chance of a situation to occur is very likely the number of times it has occurred in the past. For that reason, an appropriate caching technique, in this context, is plain LFU (least frequently used).
+
+*** LFU
+An algorithm that uses a counter instead of a lag will be called least frequently used (LFU) item eviction.There is one problem though: the access counter will only grow overtime, so some items that were heavily used during some period willnever be evicted from the cache, even though they may never be accessed again.
+To counteract this accumulation property, which is similar to bitmap saturation we’ve seen in the previous algorithm, a similar measure can be applied. Namely, we’ll have to introduce some notion of epochs, which reset or diminish the value of all counters. The most common approach to epochs is to right shift each counter, that is, divide by 2. This strategy is called aging . An LFU cache with aging may be called LRFU—least recently/frequently used.
