@@ -1034,3 +1034,34 @@ However, the number of positions, in chess, that comes up during the analysis is
 *** LFU
 An algorithm that uses a counter instead of a lag will be called least frequently used (LFU) item eviction.There is one problem though: the access counter will only grow overtime, so some items that were heavily used during some period willnever be evicted from the cache, even though they may never be accessed again.
 To counteract this accumulation property, which is similar to bitmap saturation we’ve seen in the previous algorithm, a similar measure can be applied. Namely, we’ll have to introduce some notion of epochs, which reset or diminish the value of all counters. The most common approach to epochs is to right shift each counter, that is, divide by 2. This strategy is called aging . An LFU cache with aging may be called LRFU—least recently/frequently used.
+
+*** LRU
+Is an alternative to LRU, evict the item that was used the longest time ago. LRU means that we need to store either last-access timestamps or some generation/epoch counters. Another possibility is to utilize access coutners, similar to the ones that were used for LFU,
+
+
+** Hash-Tables
+The basic properties of hash-tables are average O(1) access and support for arbitrary keys. These features can be realized by storing the items in an array at indices determined by a specialized function that maps the keys in a pseudo-random way.
+
+*** Dealing with Collisions
+Even better would be if there were no collisions (situations where two or more keys are mapped to the same index). For dynamic hash-tables, we have to accept that collisions are inevitable.
+
+The probability of collisions isgoverned by an interesting phenomenon called “the Birthday Paradox.”Let’s say we have a group of peopleof some size, for instance, 20. What is the probability that two of them have birthdays on the same date?
+It may seem quite improbable, considering that there are 365 days in a year and we are talking just about a handful of people. But if you take into account that we need to examine each pair of people to learn about their possible birthday collision, that will give us (/ (* 20 19) 2), that is, 190 pairs.
+We can calculate the exact probability by taking the complement to the probability that no one has a birthday collision, which is easier to reason about. The probability that two people don’t share their birthday is (/ (- 365 1) 365): there’s only one chance in 365 that they do.
+For three people, we can use the chain rule and state that the probability that they don’t have a birthday collision is a product of the probability that any two of them don’t have it and that the third person also doesn’t share a birthday with any of them.
+This results in (* (/364 365) (/ (- 365 2) 365)). The value (- 365 2) refers to the third person not having abirthday intersection with neither the irst nor the second individually, and those are distinct, as we have already asserted in the first term.
+Continuing in such fashion, we can count the number for 20 persons:
+
+#+begin_src lisp :tangle yes
+(defun birthday-collision-prob (n)
+    (let (rez 1))
+        (dotimes (i n)
+          (setf rez (* rez (/ (- 365 i) 365))))
+#+end_src
+
+#+begin_src lisp :tangle yes
+CL-USER> (birthday-collision-prob 20)
+0.4114384
+#+end_src
+
+So among 20 people there's already a 40% chance of observing a coinciding birthday
