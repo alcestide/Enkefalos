@@ -1049,7 +1049,11 @@ The probability of collisions isgoverned by an interesting phenomenon called “
 It may seem quite improbable, considering that there are 365 days in a year and we are talking just about a handful of people. But if you take into account that we need to examine each pair of people to learn about their possible birthday collision, that will give us (/ (* 20 19) 2), that is, 190 pairs.
 We can calculate the exact probability by taking the complement to the probability that no one has a birthday collision, which is easier to reason about. The probability that two people don’t share their birthday is (/ (- 365 1) 365): there’s only one chance in 365 that they do.
 For three people, we can use the chain rule and state that the probability that they don’t have a birthday collision is a product of the probability that any two of them don’t have it and that the third person also doesn’t share a birthday with any of them.
+<<<<<<< HEAD
 This results in (* (/364 365) (/ (- 365 2) 365)). The value (- 365 2) refers to the third person not having abirthday intersection with neither the first nor the second individually, and those are distinct, as we have already asserted in the first term.
+=======
+This results in (* (/364 365) (/ (- 365 2) 365)). The value (- 365 2) refers to the third person not having abirthday intersection with neither the irst nor the second individually, and those are distinct, as we have already asserted in the first term.
+>>>>>>> master
 Continuing in such fashion, we can count the number for 20 persons:
 
 #+begin_src lisp :tangle yes
@@ -1064,6 +1068,7 @@ CL-USER> (birthday-collision-prob 20)
 0.4114384
 #+end_src
 
+<<<<<<< HEAD
 So among 20 people there's already a 40% chance of observing a coinciding birthday.
 Well, if you substitute keys for persons and the array size for the number of days in a year, you'll get the formula of the probability of at least one collision among the hashed keys in an array, provided the hash-function produces perfectly uniform output.
 
@@ -1105,3 +1110,6 @@ Beyond the direct implementation of open addressing called "*linear probing*" (f
 The simplest modification of linear probing is called "*quadratic probing*". It operates by performing the search for the next vacant slot using the linear probing offsets that are just raised to the power 2.
 "*Double hashing*" is another simple alternative. This approach makes the sequence specific to each key, so the keys that map to the same location will have different possible variants of collision resolution.
 "*2-choice hashing*" also uses two hash-functions but selects the particular one for each key based on the distance from the original index it has to be moved for collision resolution.
+=======
+So among 20 people there's already a 40% chance of observing a coinciding birthday
+>>>>>>> master
