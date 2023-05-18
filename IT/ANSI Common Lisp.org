@@ -266,9 +266,43 @@ corresponding function
 Among other things, this notation allows us to use functions without
 naming them.
 
-In this chapter we have barely scratched the surface of Lisp. And yet a
-portrait of a very unusual language is beginning to emerge. To start
-with, the language has a single syntax to express all program structure.
-This syntax is based on the list, which is a kind of Lisp object.
-Functions, which are Lisp objects in their own right, can be expressed
-as lists.
+** Symbols
+*** Symbol Names
+The range of possible Lisp symbols is broader than the range of variable names allowed in most languages. In fact, a symbol can have any string as its name. You can get the name of a symbol by calling symbol-name:
+
+#+begin_src lisp :tangle yes
+> (symbol-name 'abc)
+"ABC"
+#+end_src
+
+By default Common Lisp converts all alphabetic characters in a symbol's name into uppercase as they are read. In fact, CLisp is not case-sensitive.
+
+*** Property Lists
+In Common Lisp every symbol has a property-list, or plist. The function get takes a symbol and a key of any type, and returns the value associated with that key in the symbol's property list:
+
+#+begin_src lisp :tangle yes
+> (get 'alizarin 'color')
+NIL
+#+end_src
+
+It uses *eql* to compare keys. If the specified property isn't found, get returns nil. To associate a value with a key you can use setf with get:
+
+#+begin_src lisp :tangle yes
+> (setf (get 'alizarin 'color) 'red')
+RED
+> (get 'alizarin 'color)
+RED
+#+end_src
+
+The function symbol-plist returns the property list of a symbol:
+
+#+begin_src emacs-lisp :tangle yes
+> (setf (get 'alizarin 'transparency) 'high')
+HIGH
+> (symbol-plist 'alizarin)
+(TRANSPARENCY HIGH COLOR RED)
+#+end_src
+
+Property lists aren't used much, as they have been largely superseded by hash tables.
+
+*** Creating Symbols
