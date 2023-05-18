@@ -1110,6 +1110,3 @@ Beyond the direct implementation of open addressing called "*linear probing*" (f
 The simplest modification of linear probing is called "*quadratic probing*". It operates by performing the search for the next vacant slot using the linear probing offsets that are just raised to the power 2.
 "*Double hashing*" is another simple alternative. This approach makes the sequence specific to each key, so the keys that map to the same location will have different possible variants of collision resolution.
 "*2-choice hashing*" also uses two hash-functions but selects the particular one for each key based on the distance from the original index it has to be moved for collision resolution.
-=======
-So among 20 people there's already a 40% chance of observing a coinciding birthday
->>>>>>> master
