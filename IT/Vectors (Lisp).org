@@ -1,0 +1,58 @@
+#+title: Vectors Lisp
+
+Vectors are Common Lisp's basic integer-indexed collection and they come in two flavors. Fixed-size vectors are a lot like arrays in a language such as Java: a thin veneer over a chunk of contiguous memory that holds the vector's elements. Resizable vectors are more like arrays in Perl or lists in Python: they abstract the actual storage, allowing the vector to grow and shrink as elements are added and removed.
+
+The #(...) syntax is the literal notation for vectors used in Lisp. This syntaxs allows you to save and restore vectors by printing them out and reading them back in. You can use #(...) to include literal vectors in your code, but you should always use vector or make-array to create vectors you plan to modify.
+
+MAKE-ARRAY is more general than VECTOR since you can use it to create arrays of any dimensionality. The one required argument to it is a list containing the dimensions of the array.
+For example, to make a five element vector with its elements initialized to NIL, you can write the following:
+
+#+begin_src lisp :tangle yes
+(make-array 5:initial-element nil) ==> #(NIL NIL NIL NIL NIL)
+#+end_src
+
+MAKE-ARRAY is also the function to use to make a resizable vector. A resizable vector is slightly more complicated by a fixed-size vector.
+In addition to keeping track of the memory used to hold the elements and the number of slots available, a resizable vector also keeps track of the number of elements actually stored in the vector. This number is stored in the vector's fill pointer, so called because it's the index of the next position to be filled when you add an element to the vector.
+
+** Vectors As Sequences
+The two most basic sequence functions are LENGTH, which returns the length of a sequence, and ELT, which allows you to access individual elements via an integer index. LENGTH takes a sequence as its only argument and returns the number of elements it contains. For vectors with a fill pointer, this will be the value of the fill pointer. ELT, short for element, takes a sequence and an integer index between zero (inclusive) and the length of the sequence (exclusive) and returns the corresponding element. ELT will signal an error if the index is out of bounds. Like LENGTH, ELT treats a vector with a fill pointer as having the length specified by the fill pointer.
+
+** Whole Sequence Manipulations
+COPY-SEQ and REVERSE each take a single argument, a sequence, and each returns a new sequence of the same type. The sequence returned by COPY-SEQ contains the same elements as its argument while the sequence returned by REVERSE contains the same elements but in reverse order.
+
+The CONCATENATE function creates a new sequence containing the concatenation of any number of sequences. However, unlike REVERSE and COPY-SEQ, which simply return a sequence of the same type as their single argument, CONCATENATE must be told explicitly what kind of sequence to produce in case the arguments are of different types. Its first argument is a type descriptor, like the :element-type argument to MAKE-ARRAY. In this case, the type descriptors you'll most likely use are the symbols VECTOR, LIST, or STRING.
+
+** Sorting and Merging
+The functions SORT and STABLE-SORT provide two ways of sorting a sequence. The difference is that stable-sort is guaranteed to not reorder any elements considered equivalent by the predicate while SORT guarantess only that the result is sorted and may reorder equivalent elements.
+
+Both these functions are examples of what are called destructive functions.
+
+Both of these funcitons also take a keyword argument, :key, which, like the :key argument in other sequence functions, should be a function ad will be used to extract the values to be passed to the sorting predicate in the place of the actual elements.
+
+The MERGE function takes two sequences and a predicate and returns a sequence produced by merging the two sequences. It takes a :key argument.
+
+#+begin_src emacs-lisp :tangle yes
+(merge 'vector #(1 3 5) #(2 4 6) #'<) ==> #(1 2 3 4 5 6)
+(merge 'list #(1 3 5) #(2 4 6) #'<)   ==> (1 2 3 4 5 6)
+#+end_src
+
+** Subsequence Manipulations
+Another set of functions allows you to manipulate subsequences of existing sequences. The most basic of these is SUBSEQ, which extracts a subsequence starting at a particular index and continuing to a particular ending index or the end of the sequence. For instance:
+
+#+begin_src emacs-lisp :tangle yes
+(subseq "foobarbaz" 3)   ==> "barbaz"
+(subseq "foobarbaz" 3 6) ==> "bar"
+
+#+end_src
+
+You can use the FILL function to set multiple elements of a sequence to a single value. If you need to find a subsequence within a sequence, the SEARCH function works like POSITION except the first argument is a sequence rather than a single item. On the other hand, to find where two sequences with a common prefix first diverge, you can use the MISMATCH function. It takes two sequences and returns the index of the first pair of mismatched elements.
+
+** Sequence Predicates
+Four other handy functions are EVERY,SOME,NOTANY and NOTEVERY which iterate over sequences testing a boolean predicate.
+
+#+begin_src emacs-lisp :tangle yes
+(every #'evenp #(1 2 3 4 5))    ==> NIL
+(some #'evenp #(1 2 3 4 5))     ==> T
+(notany #'evenp #(1 2 3 4 5))   ==> NIL
+(notevery #'evenp #(1 2 3 4 5)) ==> T
+#+end_src

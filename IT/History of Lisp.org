@@ -1,0 +1,3 @@
+#+title: History Of Lisp
+
+Conceived in the late 1950s by John McCarthy, one of the founding fathers of AI. It was originally intended as a mathematical formalism. It became a family of high-level languages, comprising several dialects such as Scheme, Clojure, Emacs Lisp and Common Lisp.

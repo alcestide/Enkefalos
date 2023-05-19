@@ -1,0 +1,15 @@
+#+title: Anonymous Functions
+
+When it seems like overkill to define a new function with DEFUN, you can create an anonymous function using a LAMBDA expression.
+
+#+begin_src lisp :tangle yes
+(lambda (parameters) body)
+#+end_src
+
+We can thing of lambda expressions as a special kind of function name where the name itself directly describes what the function does. This explains why you can use a LAMBDA expression in the place of a function name #'.
+
+#+begin_src lisp :tangle yes
+(funcall #'(lambda (x y) (+ x y)) 2 3 ) ==> 5
+#+end_src
+
+The other important use of lambda expressions is in making closures, funcitons that capture part of the environment where they're created.
