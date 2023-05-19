@@ -1,0 +1,45 @@
+#+title: Accusative Case
+
+** When is the accusative case used?
+Generally we use the accusative...
+
+- To express the direct object: Я ви́жу мою́ кни́гу - I see my book.
+- After some prepositions to show the place "someone goes to": Мы идём в кино́ - We are going to the cinema.
+
+знать - to know
+читать - to read
+видеть - to see
+любить - to love, to like
+брать - to take
+покупать - to buy
+давать - to give
+
+Этот студент знает русский язык. - This student knows the Russian language.
+Я беру эту газету. - I'm taking this newspaper.
+Он покупает билеты. - He buys tickets.
+Она даёт журнал Анне. - She is giving the magazine to Ann.
+
+| Gender                       | Singular            | Plural                                  |
+| Masculine, inanimate         | equal to Nominative | equal to Nominative                     |
+| Masculine, animate           | equal to Genitive   | equal to Genitive                       |
+| Feminine, inanimate, animate | -у /-ю / Ø          | equal to Nominative / equal to Genitive |
+| Neuter, inanimate            | equal to Nominative | equal to Nominative                     |
+| Neuter, animate              | equal to Genitive   | equal to Genitive                       |
+
+Masculine nouns obey the declension rule of animate/inanimate referents, that is why accusative singular forms of inanimate nouns are equal to nominative case forms, while accusative plural forms of animate nouns are equal to genitive case forms.
+
+Feminine nouns ending in -а change their ending to -у:
+
+улица - улицу (street)
+проблема - проблему (problem)
+студентка - студентку (female student)
+
+Feminine nouns ending in -я change the final -я to -ю:
+
+неделя - неделю (week)
+станция - станцию (station)
+
+Feminine nouns ending in soft sign (ь) do not change, i.e they have zero ending (Ø):
+
+дверь (nom. sing.) - дверь (acc. sing.) 'door'
+дочь (nom. sing.) - дочь (acc. sing.) (daughter)

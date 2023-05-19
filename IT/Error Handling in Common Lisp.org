@@ -1,0 +1,59 @@
+#+title: Error Handling In Common Lisp
+
+Any time you’re interacting with the outside world, unexpected things can happen. No matter how smart a modern computer network may be, it can never anticipate every possible exceptional situation. After all, even the smartest network can’t recover from some fool tripping over the wrong cable.
+
+** Signaling a Condition
+If you want to signal a condition directly, you can do so with the error command. You would do this if a funciton you wrote detected a problem on its own - a problem so serious the program just could not continue normally. Using the error command will interrupt your running Lisp program, unless you intercept the error elsewhere to prevent an interruption. Let's signal a condition and print the message "foo" to describe the error
+
+> (error "foo")
+- foo
+The following restarts are available:
+ABORT :R1 Abort main loop
+>
+
+As you can see, signaling the condition causes Lisp to interrupt our program, print the message "foo", and show an error prompt at the REPL.
+
+** Creating Custom Conditions
+Common Lisp allows you to have various types of condition that can be handled in different ways. A sophisticated way to signal condition is to first define a custom condition using define-condition:
+
+#+begin_src lisp :tangle yes
+(define-condition foo () ()
+    (:report (lambda (condition stream)
+                (princ "Stop F00ing around, numbskull!" stream))))
+#+end_src
+
+We created a new type of condition called foo. When it is signaled. we can supply a custom function that will be called to report the rror. We declare a lambda function, and inside it we print a custom message report.
+
+#+begin_src lisp :tangle yes
+(error 'foo)
+#+end_src
+- Stop F00ing around, Numbskull
+
+** Intercepting Conditions
+When we create a condition with define-condition, it's given a name, such as foo. This name can be used by the higher-level parts of our program to incercept and handle that condition. We can do this with the handler-case command, as follows:
+
+#+begin_src lisp :tangle yes
+(defun bad-function ()
+    (error 'foo))
+;BAD-FUNCTION
+
+(handler-case (bad-function)
+    (foo() "somebody signaled foo!")
+    (bar() "somebody signaled bar!"))
+;"somebody signaled foo!"
+
+#+end_src
+
+** Protecting Resources Against Unexpected Conditions
+When an unexpected exception happens in a program, there is always a risk that it could bring down your program or even cause damage to resources outside your program. Exceptions interrupt the regular flow of your code, and they may stop your code dead in its tracks, even while it's in the middle of a sensitive operation.
+
+Consider the following example:
+
+#+begin_src emacs-lisp :tangle yes
+(unwind-protect (/ 1 0)
+        (princ "I need to say 'flubyduby' matter what"))
+
+; - /: division by zero
+#+end_src
+
+Even after we tell CLISP to abort, the program still prints its crucial message. We can usually avoid calling unwind-protect directly by relying on Common Lisp's "with-" macros.
