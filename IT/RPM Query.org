@@ -1,7 +1,5 @@
 #+title: RPM Query
 
-## RPM Query
-
 *RPM* is used to /install/ local software packages. Once a package is installed the RPM package database is /updated/ with the software information. We can *query* that package database. We can also query a package directly even if it isn't installed. In addition, we can query a file. In reality, it's looking through the package database for a reference to the file. This only works for files that belong to software packages.
 
 The ~-q~ option tells RPM to query, and ~-a~ means *all packages*.
