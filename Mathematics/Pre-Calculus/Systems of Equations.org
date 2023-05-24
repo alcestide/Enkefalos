@@ -8,16 +8,10 @@ that makes each equation in the system *true*.
 To solve a system means to find *all solutions* of the system.\\
 Here is an example of a system of linear equations in two variables:
 
-\[ 
-\left \{ 
-\begin{aligned}
-2x-y=5 \\\\
-x+4y=7
-\end{aligned}
-\right.
-\]
+$$2x-y=5$$
+$$x+4y=7$$
 
-We can check that x = 3 and y = 1 is a solution of this system.
+We can check that $x = 3$ and $y = 1$ is a solution of this system.
 
 ** Substitution Method
 :PROPERTIES:
@@ -38,30 +32,28 @@ We can check that x = 3 and y = 1 is a solution of this system.
 :PROPERTIES:
 :CUSTOM_ID: example-1---substitution-method
 :END:
-\[ 
-\left \{ 
-\begin{aligned}
-2x+y=1 \\\\
-3x+4y=14
-\end{aligned}
-\right.
-\]
+
+$$2x+y=1$$
+
+$$3x+4y=14$$
+
 
 We solve for y in the first equation.
 
-\[y=1-2x\]
+$$y=1-2x$$
 
 Now we substitute for y in the second equation and solve for x.
 
-\[ 
-\begin{aligned}
-3x+4(1-2x)=14 \\\\
-3x+4-8x=14 \\\\
--5x+4=14 \\\\
--5x=10 \\\\
-x=-2 
-\end{aligned}
-\]
+
+$$3x+4(1-2x)=14$$
+
+$$3x+4-8x=14$$
+
+$$-5x+4=14$$
+
+$$-5x=10$$
+
+$$x=-2$$
 
 Next we back-substitute x=-2 into the equation y=1-2x
 
@@ -78,37 +70,35 @@ Next we back-substitute x=-2 into the equation y=1-2x
    into one of the original equations, and solve for the remaining
    variable. ### Example 2 - Elimination Method
 
-\[ 
-\left \{ 
-\begin{aligned}
-3x+2y=14 \\\\
-x-2y=2
-\end{aligned}
-\right.
-\]
+$$3x+2y=14$$
+
+$$x-2y=2$$
+
 
 Since the coefficients of the y terms are negatives of each other, we
 can add the equations to eliminate y.
 
-\[
-\begin{aligned}
-4x=16 \\\\
-x=4
-\end{aligned}
-\]
+
+
+$$4x=16$$
+
+$$x=4$$
+
+
 
 Now we back-substitute x = 4 into one of the original equations and
 solve for y. Let's\\
 choose the second equation because it looks simpler.
 
-\[
-\begin{aligned}
-x-2y=2 \\\\
-4-2y=2 \\\\
--2y=-2 \\\\
-y=1
-\end{aligned}
-\]
+
+$$x-2y=2$$
+
+$$4-2y=2$$
+
+$$-2y=-2$$
+
+$$y=1$$
+
 
 ** Graphical Method
 :PROPERTIES:
@@ -125,14 +115,11 @@ y=1
 :PROPERTIES:
 :CUSTOM_ID: example-3---graphical-method
 :END:
-\[
-\left \{ 
-\begin{aligned}
-1.35x - 2.13y = -2.36 \\\\
-2.16x+0.32y=1.06
-\end{aligned}
-\right.
-\]
+
+$$1.35x - 2.13y = -2.36$$
+
+$$2.16x+0.32y=1.06$$
+
 
 Solving for y in terms of x, we get the equivalent system
 
