@@ -1,0 +1,36 @@
+#+title: Binary Search Tree
+
+*BST*, Binary Search Tree.
+
+* Problem
+
+** Runway Reservation System
+
+Assume an airport with a *single* runway:
+*Reservations* for future landings. Assume time is continous.
+Reserve requests specify landing /time/ $t$.
+Add $t$ to the set $R$ of landing times if no other landings are /scheduled/ within $k$ minutes.
+
+*Remove* from set $R$ after the plane lands.
+
+- $|R| = n$
+- $O(lg n)$ time
+
+*** Example:
+Let's say that right now we're at time $37$ and the set $R$ has $41.2$, $49$ and $56.3$ in it. We may get a request for time landing $53$ and accept it after checking the reservations. $44$ is not allowed being too closed to $41.2$ and $20$ not allowed because is /past/.
+
+*** Unsorted list/array:
+
+Insert in O(1) w/o check and the check takes O(n) time.
+
+*** Sorted Array
+
+Binary search can help us find the smallest i such that $R[i] \ge t$ in $O(lgn)$ time.
+Compare $R[i]$ and $R[i-1]$ against $t$ in $O(1)$ time. But the actual inserion requires *shifting* and that could take $O(n)$ time.
+If we had a sorted list we wouldn't be able to use binary search in the first place and nor heaps nor dictionaries would be a good choice.
+
+* BST
+
+Similar to heap sort
+
+Node X: key(x)

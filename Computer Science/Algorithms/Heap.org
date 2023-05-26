@@ -1,17 +1,15 @@
-Implementation of a [[IT/Priority Queue|priority queue]]. It is an array
+Implementation of a priority queue. It is an array
 visualized as a *nearly complete* binary tree. The root of the tree is
 the first element corresponding to (i=1).
 
-#+begin_example
-parent(i) = i/2
-left(i) = 2i
-right(i) = 2i+1
-#+end_example
+parent(i) = $i/2$
+left(i) = $2i$
+right(i) = $2i+1$
 
-/Max-Heap Property/: the key of a node is \(\ge\) to the keys of its
+/Max-Heap Property/: the key of a node is $\ge$ to the keys of its
 children;
 
-/Min-Heap Property:/ the key of a node is \(\le\) to the keys of its
+/Min-Heap Property:/ the key of a node is $\le$ to the keys of its
 children;
 
 The objective is to run extract-max on the priority queue over and over.
@@ -24,5 +22,22 @@ We can define and implement a bunch of different heap operations.
 array;
 
 /max_heapify/: correct a single violation of the heap property is a
-subtree's root; Assume that the trees rooted at the left(i) and right(i)
-are max-heaps. Max Heapify is going to look like (A, i);
+subtree's root; Assume that the trees rooted at the $left(i)$ and $right(i)$
+are max-heaps. /Max Heapify/ is going to look like $(A, i)$;
+
+Convert A[i...n] into a max-heap.
+Build-max_heap(A):
+    for i = n/2 downto 1
+        do max_heapify (A,i)
+
+Observe Max_Heapify takes O(i) for nodes that are one level above leaves and in general O(l) time for nodes that are l level above the leaves.
+
+$\frac{n}{4}$ with level 1, $\frac{n}{8}$ with level 2,... 1 node $log$ $n$ level
+Total amount of work in the for loop $\frac{n}{4}$ $(1 c) + \frac{n}{8} (2c)$ $+ \frac{n}{16} (3c)+ ... l(lgn c)$
+Set $\frac{n}{4} = 2^k => c2^k(\frac{1}{2^0} + \frac{2}{2^1} + \frac{3}{2^2} + ...\frac{k+1}{2k})$
+
+1. Build max-heap from unordered array;
+2. Find max element A[1];
+3. Swap the element A[n] with A[1]; not the max element is at the end of the array;
+4. Discard node n from the heap simply by decrementing heap-size;
+5. New root may violate max-heap propriety but children are max-heaps-max-heapify;
