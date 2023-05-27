@@ -55,10 +55,9 @@ We have to check that P(0) is true
 
 ** Inductive Step
 We have to show that for $n \ge 0$ $P(n)=>P(n+i)$ is true.
-
 Assume $P(n)$ is true (for purposes of induction).
-Let's assume, $1+2+...+n = \frac{n(n+1)}{2}$
-we need to show that $1+2+...+(n+1)= \frac{(n+1)(n+2)}{2}$
+Let's assume, $1+2+...+n = \frac{n(n+1)}{2}$.
+We need to show that $1+2+...+(n+1)= \frac{(n+1)(n+2)}{2}$.
 
 $$1+2...+n+(n+1)$$
 
@@ -117,19 +116,9 @@ $P(1)$ is true since just $1$ horse.
 
 ** Inductive Step
 
-Assume that $P(n)$ is true to prove $P(n+1)$.
+Assume that $P(n)$ is true to prove $P(n+1)$. Consider a set of $n+1$ horses and let's call these horses $H_1$ $H_2$ $H_{n+1}$
 
-Consider a set of \[n+1\] horses and let's call these horses \[H_1, H_2,... H_{n+1}\].
-
-Then $H_1$, $H_2$,...$H_4$ are the same color.
-
-Also, $H_2, H_3$ and $H_{n+1}$  ''  ''  ''
-
-Since the color of $H_1$ equals the color of $H_2$ to $H_n$ = the color of $H_{n+1}$.
-
-That means that $H_1$ same color $H_n+1$ and all $H_n+1$ are the same color.
-
-The flaw consists on the ... notation.
+Then $H_1$, $H_2$,...$H_4$ are the same color. Also, $H_2, H_3$ and $H_{n+1}$  ''  ''  '' Since the color of $H_1$ equals the color of $ H_2 , H_n $ = the color of $ H_{n+1} $. That means that $H_1$ same color $H_n+1$ and all $H_n+1$ are the same color. The flaw consists on the ... notation.
 
 $P(1)$    $P(2) => P(3)$, $P(3) => P(4)$
 
