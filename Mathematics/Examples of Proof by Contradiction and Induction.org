@@ -2,10 +2,8 @@
 
 * Proof by Contradiction
 
-To prove proposition P is true, you will assume that is false, which means that !P is false.
-Then you use that hypothesis to derive a falsehood. (deriving a contradiction)
-
-Let's prove that $\sqrt(2)$ is irrational.
+To prove proposition $P$ is true, you will assume that is false, which means that $!P$ is false.
+Then you use that hypothesis to derive a falsehood. (deriving a contradiction).Let's prove that $\sqrt(2)$ is irrational. 
 
 Assuming for the purpose of contradiction that $\sqrt(2)$ is rational.
 
@@ -32,12 +30,13 @@ $\sqrt(2)$ is irrational
 
 ** Introduction axiom
 
-Let $P(m)$ be a predicate. If p(0) is true, and $\forall n \in N$ ==> $(P(n) => (P(n+1)))$ is true, then $\forall n \in N$.
+Let $P(m)$ be a predicate. If p(0) is true, and $\forall n \in N$ ==> $(P(n) => (P(n+1)))$ is true, then $\forall n \in N$. If $P(0), P(0) => P(1), P(1) => P(2)$ ... then $P(0), P(1), P(2)$ are true.
 
-If $P(0), P(0) => P(1), P(1) => P(2)$ ...
-then $P(0), P(1), P(2)$ are true.
+Let's prove that: 
 
-Let's prove that $\forall n \ge 0$   ,    $1+2+3+...+n=\frac{n(n+1)}{2}$.
+$$\forall n \ge 0$$ 
+
+$$1+2+3+...+n=\frac{n(n+1)}{2}$$
 
 If $n=1$   ,   $1+2+...+n=1$ (we're summing the numbers from 1 to 1, which makes this expression quite ambigous).
 
@@ -45,16 +44,16 @@ If $n=0$   ,   $1+2+...+n=0$ (no integers to sum).
 
 If $n=4$   ,   $1+2+...+n=10=\frac{4(5)}{2}$.
 
-*** *Pf*: by induction
+** Proof By induction
 
-Let P(n) be proposition that $\sum_{i=1}^{n}}$ $=\frac{n(n+1)}{2}$
+Let P(n) be proposition that \[\sum_{i=1}^{n}}=\frac{n(n+1)}{2}\]
 
-**** Base case
+** Base case
 
 We have to check that P(0) is true
-         $\sum_{i=1}^{0$  $=0=\frac{0(0+1)}{2}$  \check}
+         $\sum_{i=1}^{0 = 0=\frac{0(0+1)}{2}$
 
-**** Inductive Step
+** Inductive Step
 We have to show that for $n \ge 0$ $P(n)=>P(n+i)$ is true.
 
 Assume $P(n)$ is true (for purposes of induction).
@@ -66,17 +65,21 @@ $$1+2...+n+(n+1)$$
 $$\frac{n(n+1)}{2} + n+ 1 = \frac{n^2+n+2n+2}{2}=\frac{(n+1)(n+2)}{2}$$
 
 
-** Thm: $\forall n \in N$     $3|(n^3-1)$       (Ex. $n=5$    $3|(125-5)$)
+* Theorem
 
-*** Pf: by induction
+$$\forall n \in N  3|(n^3-1)$$
 
-Let P(n) be 3|(n^3-n)
+$$(Ex. \ n=5 ,\ 3|(125-5)$$
 
-**** Base case
+** Proof By Induction
+
+Let $P(n)$\ be \$3|(n^3-n)$
+
+** Base case
 
 $n = 0$   $3|(0-0)$
 
-**** Inductive Step
+** Inductive Step
 
 For n \ge 0, show P(n) => P(n+1) it true.
 We assume that P(n) is true. In other words we assume that 3|(n^3-n)
@@ -102,21 +105,21 @@ Which means $3|(n+1)^2-(n-1)$.
 * False proof using induction
 ** Thm (not!) All horses are the same color.
 
-*** Pf. by induction
+** Proof by Induction
 
 $P(n)$: in any set of n horses $(n \ge 1)$ the horses are all the same color.
 
-**** Base case
+** Base case
 
 $n=1$ that would say that any set of one horses, the horses in the set all are  the same color.
 
 $P(1)$ is true since just $1$ horse.
 
-**** Inductive Step
+** Inductive Step
 
 Assume that $P(n)$ is true to prove $P(n+1)$.
 
-Consider a set of $n+1$ horses and let's call these horses $H_1, H_2,... H_{n+1}$.
+Consider a set of \[n+1\] horses and let's call these horses \[H_1, H_2,... H_{n+1}\].
 
 Then $H_1$, $H_2$,...$H_4$ are the same color.
 
