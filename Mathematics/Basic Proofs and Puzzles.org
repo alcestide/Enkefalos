@@ -1,4 +1,3 @@
-#+title: Basic Proofs and Puzzles
 
 *Good proof* are:
 
