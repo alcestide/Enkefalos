@@ -1,4 +1,4 @@
-#+title: Examples of Proof by Contradiction and Induction
+
 
 * Proof by Contradiction
 
