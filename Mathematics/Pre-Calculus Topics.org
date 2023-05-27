@@ -1,6 +1,0 @@
-** Table of Contents
-:PROPERTIES:
-:CUSTOM_ID: table-of-contents
-:END:
-- [[Systems of Equations]]
-- [[Conic Sections]]
