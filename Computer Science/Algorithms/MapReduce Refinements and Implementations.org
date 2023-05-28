@@ -1,0 +1,32 @@
+* Combiners
+
+Often a map task will produce /many pairs/ of the form $(k,v_1), (k, v_2)$... for the same key $k$. We can /save network time/ by /pre-aggregating values/ in the /mapper/:
+
+- /combine/ $(k, list(v_1)) \implies v_2$
+
+- /Combiner/ is usually same as the /reduce/ function
+
+Combiner trick works only if reduce function is commutative and associative. While a /sum/ function is fine with this rule, let's take for example the "average" function, which is not commutative nor associative, therefore needs according adjustments (Sum of n, count of n, for every piece of computation, then applying the average function, dividing the sum of all the combiners by the count).
+
+* Partition Function
+
+- Want to control how keys get partitioned
+  - The set of keys that go to a single reduce worker
+- System uses a default partition function
+  - $hash(key) mod \ R$
+- Sometimes useful to override the hash function:
+  - E.g: ~hash(hostname(URL)) mod R~ ensures /URLs/ from a host end up in the /same output file/.
+
+* Implementations
+
+*** Google Map Reduce
+
+Uses /Google File System/ *(GFS)* for stable storage.
+
+*** Hadoop
+
+/Open source/ implementation in /Java/, uses /HDFS/ for /stable storage/.
+
+*** Hive,Pig
+
+Provide /SQL-like abstractions/ on top of /Hadoop/ Map-Reduce layer/

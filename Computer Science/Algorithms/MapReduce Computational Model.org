@@ -1,0 +1,95 @@
+The /MapReduce/ is a /programming model/ and associated implemetation for /processing/ and generating /big data sets/ with /parallel distributed/ algotithm on a /cluster/. It is essentially composed of two main procedures: the /Map Procedure/, which performs filtering and sorting, and a /Reduce method/, which performs a summary operation.
+
+The /MapReduce/ system orchestrated the processing by *marshalling* the distributed servers, running the various tasks in parallel while also providing redundancy. It is inspired by the map and reduce functions commonly used in functional programming.
+
+*MapReduce* is implemented to use only sequential scans of disk as opposed to random access for reasons of efficiency.
+
+* Map Function
+
+The *Map* method takes an input *key-value pair* and produces an int, a set of intermediate key-value pair, zero or more intermediate key-value pairs.
+
+* Reduce Method
+
+The *Reduce* method takes *intermediate* value group which consists of a key and a set of values for that key, basically searches for matching pairs and reduces them.
+
+#+begin_src
+map(key, value):
+// key: document name; value: text of the document
+    for each word w in value:
+        emit(w, 1)
+#+end_src
+
+#+begin_example
+reduce(key, values)
+// key: a word; value: an iterator over counts
+    result = 0
+    for each count v in values:
+            result += v
+    emit (key, result)
+#+end_example
+
+Typical database servers face too many /bottlenecks/ and struggle when dealing with massive datasets. The MapReduce computational model is used to assign tasks to /different nodes/ and it handles every job /independently/.
+
+
+** Example: Host Size
+Suppose we have a /large web corpus/ with a /metadata/ file formatted as follows:
+
+Each record of the form: /(URL, size, data)/
+
+*** Map,
+
+For each record, /output/ =(hostname(URL),size)=.
+
+*** Reduce
+
+/Sum/ the sizes for /each host/.
+
+* Map-Reduce: Environment
+
+/Map-Reduce environment/ takes care of:
+
+- /Partitioning/ the input data
+- /Scheduling/ the program's execution across a /set of machines/
+- /Performing/ the group by key step
+- /Handling/ node /failures/
+- Managing required /inter-machine communication/
+
+* Data Flow
+
+- /Input and final output/ are stored on the /distributed file system (DFS)/:
+
+  - Scheduler tries to schedule map tasks close to physical storage location of input data.
+
+- /Intermediate results/ are stored on /local FS/ of Map and Reduce workers.
+
+- Output is often input to /another MapReduce task/.
+
+* Coordination: Master
+
+- Master node takes care of coordination:
+  - Task status (/idle, in progress, completed/);
+  - /Idle/ tasks get /scheduled/ as workers become /available/;
+  - When a map task /complete/s, it /sends/ the master the /location/ and /sizes/ of its /R intermediate files/, one for each reducer;
+  - Master /pushes/ this /info/ to reducers;
+
+- Master /pings/ workers periodically to detect /failures/;
+
+* Dealing with Failures
+- /Map worker failure/
+  - Map tasks /completed/ or /in-progress/ at worker are /reset/ to /idle/;
+  - Idle tasks eventually /rescheduled/ on other workers;
+- /Reduce worker failure/
+  - Only /in-progress/ tasks are /reset/ to /idle/;
+  - Idle Reduce tasks /restarted/ on other workers;
+- /Master failure/
+  - /MapReduce/ task is /aborted/ and client is notified;
+
+* How Many Map and Reduce jobs?
+- $M$ map tasks, $R$ reduce tasks
+- /Rule of thumb/:
+  - Make $M$ much larger than the number of nodes in the cluster;
+  - One /DFS/ chunk per map is common;
+  - Improves /dynamic load balancing/ and speeds up /recovery/ from worker failures;
+
+- Usually $R$ is smaller than $M$
+  - Because output is spread across R files;
