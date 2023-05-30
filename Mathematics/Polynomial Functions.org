@@ -1,0 +1,7 @@
+#+title: Polynomial Functions
+
+A polynomial function of degree n is a function of the form
+
+$$ P(x)=a_nx^n + a_{n-1}x^{n-1}+...+a_1x+a_0$$
+
+where $n$ is a non negative integer and $a_n \ne 0$. The numbers $a_0, a_1, a_2,...,a_n$ are called coefficients of the polynomial. The number $a_0$ is the constant coefficient or constant term. The number $a_n$, the coefficient of the highest power, is the leading coefficient, and the term $a_nx^n$ is the leading term.
