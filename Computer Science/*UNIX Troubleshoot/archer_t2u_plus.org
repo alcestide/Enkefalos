@@ -1,0 +1,25 @@
+#+title: Archer T2U Plus
+
+** Driver
+
+RTL8821AU
+
+** Repository
+
+https://github.com/ivanovborislav/rtl8821au
+
+** Procedure
+
+#+begin_src bash
+git clone https://github.com/ivanovborislav/rtl8821au.git
+cd rtl8821au
+
+#+end_src
+# install linux-headers-$(uname -r)
+
+#+begin_src
+make
+make install
+#+end_src
+
+Module name: 8821au
