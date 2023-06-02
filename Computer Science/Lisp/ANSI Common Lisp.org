@@ -324,3 +324,89 @@ This defines a new operator called /!nil/ which will take on argument. To test a
 ** Backquote
 
 The backquote read-macro makes it possible to build lists from templates. Backquote is used extensively in macro definitions. The advantage of backquote is that within a backquoted expression you can use a , and ,@ to turn evaluation back on.
+
+* CLOS
+
+The Common Lisp Object System or CLOS, is a set of operators for doing object-oriented programming.
+
+** Object-Oriented Programming
+
+Object-oriented programming means a change in the way programs are organized. It breaks up traditional programs in such a way that, instead of having a single program that operates on an inert mass of data, the data itself is told how to behave and the program is implicit in the interacitons of these new data "objects".
+
+In the object-oriented model, our program gets broken up int oseveral distinct methods, each one intended for certain kinds of arguments. Together with this way of breaking up functions int odistinct methods, object-oriented progrmaming implies inheritance - both of slots and methods. In practical terms, object-oriented programming means organizing a program in terms of methods, classes, instances and inheritance. One of the claims of the object-oriented approach is that it makes programs easier to change.
+
+** Classes and Instances
+
+We can define a class using *defclass*:
+
+#+begin_src lisp
+(defclass circle ()
+   (radius center))
+#+end_src
+
+This definition says that instances of the circle class will have two slots, named radius and center respectively. To make instances of this class, we can call the general ~make-instance~ with the class as the first argument:
+
+#+begin_src lisp
+> (setf c (make-instance 'circle))
+#<Circle #XC27496>
+#+end_src
+
+To set the slots:
+
+~(setf (slot-value c 'radius) 1)~
+
+The values of uninitialized slots are undefined.
+
+** Slot Properties
+
+The third argument to ~defclass~ must be a list of slot definitions. In the general case a slot definition can be a list of a name followed by one or more properties, which are specified like keyword arguments. By defining an ~:accessor~ for a slot, we implicitly define a function that refers to the slot.
+
+#+begin_src lisp :tangle yes
+(defclass circle ()
+ ((radius :accessor circle-radius)
+  (center :accessor circle-center)))
+#+end_src
+
+Then we will be able to refer to the slots as circle-radius and circle-center respectively. By specifying a :reader instead of an ~:accessor~, we could get just the first half of this behavior, or just the second. To specify a default value for a slot, we have to give an ~:initform~ argument. if we want to be able ot initialize the slot in the call to make-instance we define a parameter name as an ~:initarg~. We can specify that some slots are to be shared. We do this by delcaring the slot to have :allocation :class (the alternative would be :allocation :instance, but it's the implicit default).
+
+** Superclasses
+
+The second argument to ~defclass~ is a list of ~superclasses~. A class inherits the union of the slots of its superclasses. So if we define the class ~screen-circle~ to be a subclass of both ~circle~ and ~graphic~,
+
+#+begin_src lisp :tangle yes
+(defclass graphic ()
+ ((color :accessor graphic-color :initarg :color)
+  (visible :accessor graphic-visible :initarg :visible
+   :initform t)))
+
+(defclass screen-circle (circle graphic)
+ ())
+#+end_src
+
+* Structure
+
+** Shared Structure
+
+Lists can share conses in common. In the simplest case, one list might be part of another. After
+
+#+begin_src lisp :tangle yes
+> (setf part (list 'b 'c))
+(B C)
+> (setf whole (cons 'a part'))
+(A B C)
+#+end_src
+
+the first cons is part of the second. In situations like this, we say that the two lists share structure. The predicate ~tailp~ detects this situation. It takes two lists and returns true if the first would be encountered on traversing the second:
+
+#+begin_src lisp :tangle yes
+> (tailp part whole)
+T
+#+end_src
+
+** Modification
+
+If two lists share structure, and we modify one, then we may inadvertently be modifying the other. In the previous section, we saw how to make one list a tail of another modifying shared structure can cause some very subtle bugs.
+
+Lisp programmers learn to be aware of shared structure, and to suspect it immediately in certain kinds of errors. When a list mysteriously changes for no apparent reason, it is probably because you changed something else that shared structure with it. It is not the shared structure that's dangerous, but the changingo be on the safe side, simply avoid using s e t f (or related operators like pop, rplaca, etc.) on list structure, and you won't run into any problems.
+
+** Example: Queues
