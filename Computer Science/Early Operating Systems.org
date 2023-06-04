@@ -1,0 +1,6 @@
+#+title: Early Operating Systems
+
+In the beginning, the operating system didn’t do too much.
+Basically, it was just a set of libraries of commonly-used functions; for example,instead of having each programmer of the system write low-level I/O handling code, the “OS” would provide such APIs, and thus make life easier for the developer.
+Usually, on these old mainframe systems, one program ran at a time, as controlled by a human operator.
+Much of what you think a modern OS would do (e.g., deciding what order to run jobs in) was performed by this operator. If you were a smart developer, you would be nice to this operator, so that they might move your job to the front of the queue. This mode of computing was known as batch processing, as a number of jobs were set up and then run in a “batch” by the operator. Computers, as of that point, were not used in an interactive manner, because of cost: it was simply too costly to let a user sit in front of the computer and use it, as most of the time it would just sit idle then, costing the facility hundreds of thousands of dollars per hour [BH00].

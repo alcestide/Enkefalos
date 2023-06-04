@@ -1,0 +1,11 @@
+#+title: Process Api
+
+- Create: An operating system must include some method to create new processes
+
+- Destroy: As there is an interface for process creation, systems also provide an interface to destroy processes forcefully.
+
+- Wait: Sometimes it is useful to wait for a process to stop running; thus some kind of waiting interface is provided.
+
+- Miscellaneous control: Other than killing or waiting for a process, there are sometimes other controls that are possible. For example, most operating systems provide some kind of method to suspend a process (stop if from running for a while) and then resume it (continue it running).
+
+- Status: There are usually interfaces to get some status information about a process as well, such as how long it has run for, or what state it is in.

@@ -1,0 +1,27 @@
+#+title: Limited Direct Execution
+
+The "direct execution" part of the idea is simple: just run the program directly on the CPU. Thus, when the OS wishes to start a program running, it creates a process entry for it in a process list, allocates some memory pages for it, loads the program code into memory, locates it entry point, jumps to it and starts running the user's code. This approach gives rise to a few problems in our quest to virtualize the CPU. The first is simple: if we just run a program, how can the OS make sure the program doesn't do anything that we don't want it to do, while still running it efficiently? The second: when we are running a process, how does the OS stop if from running and switch to another process, thus implementing the time sharing we require to virtualize the CPU?
+
+** Restricted Operations
+
+Direct execution has the advantage of being fast; the program runs natively on the hardware CPU and thus executes as quickly as one would expect. But running on the CPU introduces a problem: what if the process wishes to perform some kind of restricted operation, such as issuing an I/O request to a disk or gaining access to more system resouces?
+
+One approach would simply be to let any process do whatever it wants in terms of I/O and other related operations. If we wish to build a file system that checks permissions before granting access to a file, we can't simply let any user process issue I/Os to the disk; if we did, a process could simply read or write the entire disk and all protections could be lost. We introduce then a new processor mode, known as user mode; code that runs in user mod is restricted in what it can do. In contrast to user mode is kernel mode, which the operating system or kernel runs in. In this mode, code that runs can do what it likes, including privileged operations such as issuing I/O requests and executing all types of restricted instructions.
+
+Virtually all modern hardware provides the ability for user programs to perform a system call. System calls allow the kernenl to carefully expose certain key pieces of functionality to user programs, such as accessing the file system, creating and destroying processes communicating with other processes and allocating more memory.
+To execute a system call, a program must execute a special trap instruction. This instruction simultaneously jumps into the kernel and raises the privilege level to kernel mode; once in the kernel, the system can now perform whatever privileged operations are needed and thus do the required work for the calling process. When finished, the OS calls a return-from-trap instruction which returns into the calling user program while reducing the privilege level back to user mode.
+
+On x86 for example the processor will push the program counter, flags and a few other registers onto a per-process kernel stack; the return-from-trap will pop these values off the stack and resume execution of the user-mode program. How does the trap know which code to run inside the OS? The calling process can't specify an address to jump to; doing so would allow programs to jump anywhere into the kernel which clearly is a bad idea. The kernel must carefully control what code exeutes upon a trap. It does so by setting up a trap table at boot time. When the machine boots up, it does so in pviileged (kernel) mode, and thus is free to configure machine hardware as need be.
+
+Being able to execute the instruction to tell the hardware where the trap tables are is a very powerful capability, thus, it's also a privileged operation.
+The are two phases in the LDE protocol. In the first (at boot time), the kernel initializes the trap table and the CPU remembers its location for subsequent use. The kernel does so via a privileged instruction. In the second (when running a process) the kernel sets up a few things before using a return-form-trap instruction. When the process wishes to issue a system call, it traps back into the OS, which handles it and once again returns control via a return-from-trap to the process. The process then completes its work.
+
+** Switching Between Processes
+
+If a process is running on the CPU, this means that the OS is not running. How can the OS regain control of the CPU so that i can switch between processes?
+
+One approach is known as the cooperative approach, in which the OS trusts the processes of the system to behave reasonably. How does a friendly process give up the CPU? Most processes, as it turns out, transfer control of the CPU to the OS quite frequently by making system calls. Applications also transfer control to the OS when they do something illegal. For example if an application divides by zero, or tries to access memory that it shouldn't be able to access, it will generate a trap to the OS and the OS will have control of the CPU again.
+
+*** Non-Cooperative Approach: The OS Takes Control
+
+It turns out the OS can't do much at all when a process refuses to make system calls. In the cooperative approach, your only recourse when a process gets stuck in an infinite loop is to restort to the age odl solution to all problems in a computer system: reboot. So how do we gain control without cooperation? The answer is: a timer interrupt. A timer device programmed to raise an interrupt every so many milliseconds; when the interrupt is raised, the currently running process is halted and a pre-configured interrupt handler in the OS runs

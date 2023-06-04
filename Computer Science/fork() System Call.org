@@ -1,0 +1,37 @@
+#+title: Fork System Call
+
+The fork() system call is used to create a new process.
+
+#+begin_src c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int
+main(int argc, char *argv[])
+  {
+    printf("hello world (pid:%d)\n", (int) getpid());
+    int rc = fork();
+    if (rc < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(1);
+    } else if (rc == 0) { // child (new process)
+        printf("hello, I am child (pid:%d)\n", (int) getpid());
+    } else {
+        printf("hello, I am parent of %d (pid:%d)\n",
+               rc, (int) getpid());
+    }
+        return 0;
+    }
+#+end_src
+
+Example output:
+
+#+begin_src bash
+prompt> ./p1
+hello, world (pid:29146)
+hello, I am partent of 29147 (pid:29146)
+hello, I am child (pid:29147)
+#+end_src
+
+When the program first started running, the process prints out a hello world message; included in that message is its process identifier also known as a PID. The process has a PID of 29146. The process calls the ~fork()~ system call which the OS provides as a way to create a new process. The process that is created is an almost exact copy of the calling process. To the OS it now looks like there are two copies of the program p1 running, and both are about to return from the ~fork()~ system call. The newly created process (called the child, in contrast to the creating parent) doesn't start running at ~main()~, like you might expect; rather, it just comes into life as if it had called ~fork()~ itself. The value it returns to the caller of fork() is actually different. While the parent receives the PID of the newly created child, the child is simply return a 0.
