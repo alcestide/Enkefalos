@@ -1,0 +1,18 @@
+* Progn
+
+The general purpose special operator progn is used for evaluating zero or more forms and it causes each of its arguments to be evaluated in sequence and then returns the value of the last one. It enforces execution sequence the same as textual sequence. Progn therefore allows you to have multiple statements evaluated
+
+** Syntax
+
+#+begin_src
+progn form* => result*
+#+end_src
+
+** Example
+
+#+begin_src lisp :tangle yes
+(progn
+  (print 'hello)
+  42)
+;=> 42
+#+end_src
