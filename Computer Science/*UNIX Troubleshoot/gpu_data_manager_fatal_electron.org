@@ -1,0 +1,4 @@
+#+title: Gpu_data_manager_fatal_electron
+
+~--in-process-gpu~ option helps as workaround.
+Also ~--disable-gpu-sandbox~ or ~--no-sandbox~ options helps too
