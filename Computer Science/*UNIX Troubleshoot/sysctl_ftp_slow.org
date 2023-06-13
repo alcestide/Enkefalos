@@ -1,0 +1,9 @@
+#+title: Sysctl Ftp Slow
+
+
+~sudo nano /etc/sysctl.conf~
+
+Add the following lines to the end of that file:
+
+~net.ipv4.tcp_rmem=40960 873800 62914560~
+~net.core.rmem_max=25000000~
