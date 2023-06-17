@@ -1,0 +1,10 @@
+#+title: IAM Best Practices
+
+- Don't use root account except for AWS account setup
+- One physical user = One AWS user
+- Assign users to groups and assign permissions to groups
+- Create a strong password policy
+- Use and enforce use of MFA
+- Use Access Keys for Programmatic Access (CLI/SDK)
+- Audit permissions of your account with the IAM Credentials Report
+- Never share IAM users and Access Keys
