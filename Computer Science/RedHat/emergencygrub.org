@@ -1,0 +1,17 @@
+#+title: Emergencygrub
+
+# Edit grub entry
+
+add systemd.unit=emergency.target
+
+rd.break
+
+# Mount and chroot
+
+mount -o remount,rw /sysroot
+
+chroot /sysroot
+
+systemctl set-default multi-user
+systemctl get-default
+systemctl set-default graphical

@@ -1,0 +1,4 @@
+#+title: Grub
+
+BIOS: ~/boot/grub2/grub.cfg~
+UEFI: ~/boot/efi/EFI/redhat/grub.efi~

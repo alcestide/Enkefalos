@@ -3,26 +3,26 @@
 
 ** Maintain weight
 
-2,628 100%
+2,441 100%
 Calories/day
 
 ** Mild weight loss
 
 (0.25 kg/week)
 
-2,378 90%
+2,191 90%
 Calories/day
 
 ** Weight loss
 
 (0.5 kg/week)
 
-2,128 81%
+1,941 81%
 Calories/day
 
 ** Extreme weight loss
 
 (1 kg/week)
 
-1,628 62%
+1,441 62%
 Calories/day
