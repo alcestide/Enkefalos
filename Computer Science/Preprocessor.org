@@ -1,3 +1,0 @@
-#+title: Preprocessor
-
-The preprocessor is a program that runs beforethe compiler. It has a number of purposes, andwe've been actually using it already withoutknowing. Any line that starts with a octothorpe # character (hash to you and me) is a preprocessor command. Another use of the preprocessor is to detect which operating system the code is being compiled on, and to use this to emit different code.

@@ -1,0 +1,47 @@
+
+# Table of Contents
+
+1.  [RSA Algorithm](#orgeaff74b)
+
+
+<a id="orgeaff74b"></a>
+
+# RSA Algorithm
+
+-   **Beforehand:** receiver creates a **public** key and also a **secret** key. He publishes the public key, and keeps the secret key for himself.
+    1.  Generate *two* distinct $p$ and $q$;
+    2.  Let $n = p q$ ;
+    3.  Select $e$ s.t the $gcd(e,(p-1)(q-1))=1 =>$ the *public* key is the pair that consists of $e$ and $n$;
+    4.  Compute $d$ s.t $d \cdot e \equiv 1 (mod \ (p-1)(q-1))$. The *secret* key is the pair that consists of $d$ and $n$;
+
+-   **Encryption:** $m' = rem(m^e, n)$;
+-   Decryption: $m=rem((m)^d,n)$;
+
+$$m' = rem(m^e,n) \equiv m^e (mod \ n) => (m')^d \equiv m^{ed} (mod \ n)$$
+
+$$ \exists_r$ , $e_d = 1+r(p-1)(q-1) $$
+
+$$(m')^d \equiv m^{ed} \equiv m \cdot m^{r(p-1)(q-1)} (mod \ n)$$
+
+$$n=pq$$
+
+$$(m')^d \equiv mm^{r(p-1)(q-1)} (mod \ p)$$
+
+$$(m')^d \equiv mm^{r(p-1)(q-1)} (mod \ q)$$
+
+If $m  \not\equiv  0 (mod \ n)$
+
+then 
+
+$$m ^ {p-1}\equiv 1 (mod \ p)$$
+
+$$m \not\equiv 0 (mod \ q) ... m^{q-1} \equiv 1 (mod \ q)$$
+
+$$(m')^d \equiv m (mod \ p) => p|((m')^d-m)=> p \cdot q | ((m')^d-m)$$
+
+$$(m')^q \equiv m (mod \ q) => q|((m')^d-m)$$
+
+$$(m')^d \equiv m (mod \ n)$$
+
+$$m=rem((m')^d,n)$$
+

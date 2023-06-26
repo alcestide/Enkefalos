@@ -1,0 +1,16 @@
+
+# Table of Contents
+
+
+
+A quadratic function $f(x)=ax^2+bx+c$ can be expressed in the standard form
+
+$$f(x)=a(x-h)^2+k$$
+
+by completing the square. The graph of $f$ is a parabola with vertex (h,k); the parabola opens upward if a>0 or downward if a<0.
+
+Let $f$ be a quadratic function with standard form $f(x)=a(x-h)^2+k$. The maximum or minimum value of $f$ occurs at $x=h$.
+
+-   If $a > 0$ then the minimum value of f is $f(h)=k$.
+-   If $a < 0$ then the maximum value of f is $f(h)=k$.
+

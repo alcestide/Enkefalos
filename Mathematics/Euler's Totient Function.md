@@ -1,0 +1,21 @@
+
+# Table of Contents
+
+1.  [Euler&rsquo;s Totient Function](#org911b4e3)
+
+
+
+<a id="org911b4e3"></a>
+
+# Euler&rsquo;s Totient Function
+
+$\phi(n)$ denotes the number of integers in ${1,2,3,...,n-1}$ that are relatively prime to $n$.
+
+Ex: $n=12$    $1,2,3,4,5,6,7,8,9,10,11,12$
+
+$\phi(12)=4$ *(there are 4 integers in the sequence that are relatively prime)*
+
+Ex. $n=15$    $1,2,3,4,5,6,7,8,9,10,11,12,13,14$
+
+$\phi(15)=8$
+

@@ -1,9 +1,0 @@
-If $P$ is a polynomial and $c$ is a real number, then the following are equivalent:
-
-1. $c$ is a zero of $P$.
-   
-2. $x=c$ is a solution of the equation $P(x)=0$
-
-3. $x-c$ is a factor of $P(x)$
-
-4. $c$ is an *x-intercept* of the graph of $P$.

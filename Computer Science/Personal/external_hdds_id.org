@@ -1,9 +1,0 @@
-#+title: External HDDs ID
-
-* Scarab
-ID: 6bdc2f
-Size: 2TB
-
-* Satyr
-ID:
-Size: 2TB

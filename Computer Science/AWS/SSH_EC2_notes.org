@@ -1,8 +1,0 @@
-#+title: Ssh EC2 Notes
-
-Download the keypair and CD into the dir where it is located.
-
-#+begin_src
-chmod 0400 file.pem
-ssh -i file.pem ec2-user@123.456.789
-#+end_src

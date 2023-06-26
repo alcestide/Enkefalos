@@ -1,3 +1,0 @@
-#+title: Ntfs Volume Scheduled For A Check Or Shutdown Uncleanly
-
-=sudo ntfsfix -d /dev/sdxx=
