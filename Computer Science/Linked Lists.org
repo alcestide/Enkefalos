@@ -1,0 +1,46 @@
+#+title: Linked Lists
+
+A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object. Linked lists provide a simple, flexible representation for dynamic sets.
+Each element of a doubly linked list L is an object with an attribute ~key~ and two other pointer attributes: ~next~ and ~prev~.
+
+The object may also contain other satellite data. Given an element ~x~ in the list, ~x.next~ points to its successor in the linked list, and ~x.prev~ points to its predecessor. If ~x.prev = NIL~, the element ~x~ has no predecessor and is therefore the first element, or ~head~, of the list. If ~x.next = NIL~, the element ~x~ has no successor and is therefore the last element, or tail of the list. An attribute ~L.head~ points to the first element of the list.
+
+If ~L.head = NIL~, the list is empty. A list may have one of several forms. It may be either singly linked or doubly linked, it may be sorted or not, and it may be circular or not. If a list is singly linked, we omit the prev pointer in each element.
+
+If a list is ~sorted~, the linear order of the list corresponds to the linear order of keys stored in elements of the list; the minimum element is then the head of the list, and the maximum element is the tail. If the list is unsorted, the elements can appear in any order. In a circular list, the ~prev~ pointer of the head of the list points of the tail, and the ~next~ pointer of the tail of the list points to the head. We can think of a circular list as a ring of elements.
+
+** Searching a linked list
+
+The procedue ~LIST-SEARCH(L,k)~ finds the first element with key ~k~ in list ~L~ by a simple linear search, returning a pointer to this element. If no object with key k appears in the list, then the procedure returns NIL.
+
+#begin_src
+x = L.head
+while x \neq NIL and x.key \neq k
+    x = x.next
+#+end_src
+
+To search a list of ~n~ objects, the ~LIST-SEARCH~ procedure takes \theta(n) time in the worst case, since it may have to search the entire list.
+
+** Inserting into a linked list
+
+Given an element x whose key attribute has already been set, the LIST-INSERT procedure "splices" ~x~ onto the front of the linked list.
+
+#begin_src
+x.next = L.head
+if L.head \neq NIL
+    L.head.prev = x
+L.head = x
+x.prev = NIL
+#end_src
+
+** Deleting from a linked list
+
+The procedure LIST-DELETE removes an element ~x~ from a linked list ~L~. It must be given a pointer to ~x~ and it then splices ~x~ out of the list by updating pointers. If we wish to delete an element with a given key we must first call LIST-SEARCH to retrieve a pointer to the element.
+
+#begin_src
+if x.prev \neq NIL
+    x.prev.next = x.next
+else L.head = x.next
+if x.next \neq NIL
+    x.next.prev = x.prev
+#end_src

@@ -1,0 +1,3 @@
+#+title: Devops Workflow
+
+SCM => Build => Unit Testing => Code Quality Analysis => Code Security Analysis => Artifact Repository => Deployment Tool => Server

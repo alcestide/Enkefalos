@@ -1,0 +1,13 @@
+#+title: Branches Strategy
+
+Three Branches:
+
+- Testing => Testing Server
+    - v1 (version)
+    - v2
+- QA => Quality Check Server
+    - v1
+    - v2
+- Prod => Production Server
+    - R1 (release)
+    - R2
