@@ -33,18 +33,8 @@ Replicas can be promoted to their own DB. Applications must update the connectio
   - A snapshot is taken;
   - A new DB is restored from the snapshot in a new AZ;
   - Synchronization is established between the two databases;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> org
-
 ** RDS Custom
 
 - Managed Oracle and Microsoft SQL Server Database with OS and database customization;
 - Access to the underlying database and OS;
 - Deactivate Automation Mode to perform your customization;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> org
->>>>>>> org
