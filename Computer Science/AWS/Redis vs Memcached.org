@@ -1,0 +1,14 @@
+#+title: Redis vs Memcached
+
+* Redis
+- Multi AZ with Auto-Failover
+- Read Replicas to scale reads and have high availability
+- Data durability using AOF persistence
+- Backup and restore features
+
+* Memcached
+- Multi-node for paritioning of data (sharding)
+- No high availability (replication)
+- Non persistent
+- No backup and restoree
+- Multi-threaded architecture

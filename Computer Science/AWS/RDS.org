@@ -1,0 +1,25 @@
+#+title: AWS RDS
+
+It stands for Relational Database Service. It's a managed DB service for DB use SQL as a query language. It allows to create databases in the cloud that are managed by AWS
+
+- Postgres
+- MySQL
+- MariaDB
+- Oracle
+- Microsoft SQL Server
+- Aurora (AWS Proprietary Database)
+
+  *Advantages:*
+  - Automated provisioning, OS patching;
+  - Continous backups and snapshots;
+  - Monitoring dashboards;
+  - Read replicas;
+  - Multi AZ setup for disaster recovery;
+  - Maintenance windows for upgrade;
+  - Scaling capability;
+  - Storage backend by EBS;
+
+BUT you cannot SSH into these instances
+
+** Storage Auto Scaling
+- When RDS detects you're running out of free database storage, it scales automatically;

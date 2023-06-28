@@ -1,0 +1,7 @@
+#+title: Patterns For Elasti Cache
+
+- Lazy Loading: all the read data is cached;
+
+- Write Through: adds or update data in the cache when written to a DB;
+
+- Session Store: store temporary session data in a cache using TTL features;
