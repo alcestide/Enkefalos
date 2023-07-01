@@ -1,0 +1,3 @@
+#+title: Algorithm
+
+An algorithm is a set of instructions aimed towards te resolution of a defined problem. It is some kind of function that takes some input and returns an output. Algorithms act as an exact list of instructions that conduct specified actions step by step in either hardware or software based routines. They are used as specifications for performing calculations and data processing.
