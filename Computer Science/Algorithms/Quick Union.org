@@ -1,0 +1,70 @@
+#+title: Quick Union
+
+Quick union is a so called lazy approach to algorithm design where we try to avoid doing work until we have to. It uses the same data structure of array ID with size M but now it has a different interpretation.
+
+** Data structure
+- Integer array ~id[]~ of size ~N~.
+- Interpretation: ~id[i]~ is parent of ~i~.
+- Root of ~i~ is ~id[id[id[...id[i]]]]~.
+
+#+begin_src cpp
+int array[10] {0,1,9,4,9,6,6,7,8,9}
+#+end_src
+
+** Find
+Check if p and q have the same root.
+
+** Union
+To merge components containing p and q, set the id of p's root to the id of q's root.
+
+** Java implementation example
+
+#+begin_src java
+public class QuickUnionUF
+{
+    private int[] id;
+    public QuickUnionUF(int N)
+    {
+        // set id of each object to itself
+        id = new int[N];
+        for (int i = 0; i < N; i++) id[i] = 1;
+    }
+    private int root(int i)
+        {
+        // chase parent pointers until reach root
+        while(i != id[i]) i= id[i];
+        return i;
+        }
+    public boolean connected(int p, int q)
+        {
+            // check if p and q have same root
+            return root(p) == root(q);
+        }
+    public void union(int p, int q)
+        {
+            // change root of p to point to root of q
+            int i = root(p);
+            int j = root(q);
+            id[i] = j;
+        }
+}
+#+end_src
+
+** Cost model
+
+quick-find
+- initialize: $N$
+- union: $N$
+- find: $1$
+quick-union
+- initialize: $N$
+- union: $N^1$
+- find: $N$
+
+Quick find defect:
+- Union too expensive
+- Trees are flat, but too expensive to keep them flat
+
+Quick union defect:
+- Trees can get tall
+- Find too expensive

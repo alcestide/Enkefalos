@@ -1,0 +1,15 @@
+#+title: Quick Find
+
+The quick find algorithm is called eager algorithm to solve dynamic connectivity problems.
+
+Too slow for big problems.
+
+** Data structure
+- *integer array* ~id[]~ of size ~N~.
+- *interpretation** ~p~ and ~q~ are connected ~iff~ they have same ~id~.
+
+** Find
+Check if p and q have the same id.
+
+** Union
+To merge components containing p and q, change all entries whose ~id~ equals ~id[p]~ to ~id[q]~.
