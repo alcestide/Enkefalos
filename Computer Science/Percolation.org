@@ -1,0 +1,32 @@
+#+title: Percolation
+
+In physics, chemistry, and materials science, percolation (from Latin percolare 'to filter, trickle through') refers to the movement and filtering of fluids through porous materials. It is described by Darcy's law. Broader applications have since been developed that cover connectivity of many systems modeled as lattices or graphs, analogous to connectivity of lattice components in the filtration problem that modulates capacity for percolation.
+
+A model for many physical systems:
+- N-by-N grid of sites.
+- Each site is open with probability p (or blocked with probability 1-p).
+- System percolates iff top and bottom are connected by open sites.
+
+** Percolation phase transition
+
+When N is large, theory guarantess a sharp threshold p*:
+- p > p* : almost certainly percolates;
+- p < p* : almost certainly does not percolates;
+
+** Monte Carlo simulation
+
+- Initialize N-by-N whole grid to be blocked.
+- Declare random sites open until top connected to bottom.
+- Vacancy percentage estimates p*.
+
+** How to check whether an N-by-N system percolates
+- Create an object for each site and name them 0 to $N^2-1$.
+- Sites are in same component if connected by open sites.
+- Percolates iff any site on bottom row is connected to site on top row.
+
+Clever trick:
+    - Introduce 2 virtual sites (and connections to top and bottom)
+    - Percolates iff virtual top site is connected to the virtual bottom size.
+
+How to model opening a new site
+- Connect newly opened site to all of its adjecent open sites.
