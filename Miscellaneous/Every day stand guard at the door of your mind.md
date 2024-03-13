@@ -1,0 +1,1 @@
+_Every day_, _stand guard at the door of your mind_, and you alone decide what thoughts and beliefs you let into your life. _For these thoughts will shape whether you feel rich or poor, cursed or blessed._
