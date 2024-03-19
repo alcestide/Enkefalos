@@ -13,26 +13,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/POSIX - Portable Operating System Interface.md",
+                "file": "Computer Science/Semaphores.md",
                 "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "5134afc1d190b4b0",
+            "id": "e37c8e262df0d95e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/File Descriptors.md",
+                "file": "Computer Science/Shortest Remaining Time First.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "baaf4c8858cd3609",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Computer Science/Round-Robin - Time Slicing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cfcdc02ad01eb905",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Computer Science/Multi-level Feedback Queue.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -106,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer Science/File Descriptors.md",
+                "file": "Computer Science/Multi-level Feedback Queue.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer Science/File Descriptors.md",
+                "file": "Computer Science/Multi-level Feedback Queue.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer Science/File Descriptors.md"
+                "file": "Computer Science/Multi-level Feedback Queue.md"
               }
             }
           }
@@ -167,39 +191,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9230c867757c252b",
+  "active": "cfcdc02ad01eb905",
   "lastOpenFiles": [
-    "Computer Science/POSIX - Portable Operating System Interface.md",
-    "Computer Science/File Descriptors.md",
-    "Computer Science/malloc - memory allocation.md",
+    "Untitled.md",
     "Computer Science/Semaphores.md",
+    "Computer Science/Round-Robin - Time Slicing.md",
+    "Computer Science/Multi-level Feedback Queue.md",
+    "Computer Science/Shortest Remaining Time First.md",
+    "Computer Science/Linear Feedback Shift Registers.pdf",
+    "Computer Science/MIPS Fields.md",
+    "Computer Science/Linux/WakeOnLan Systemd-Link.md",
+    "Computer Science/Linux/Network Printers Discovery.md",
+    "Computer Science/Linux/Bluetooth on Dualboot.md",
+    "Computer Science/Red Black Trees.md",
+    "Computer Science/malloc - memory allocation.md",
+    "Computer Science/Fork-Join Model.md",
+    "Computer Science/File Descriptors.md",
+    "Computer Science/Concurrency.md",
+    "Computer Science/Data Encryption Standard (DES).pdf",
+    "Computer Science/Linux/PPTP Client NetworkManager.md",
+    "Computer Science/Linux/Include GLAD for OpenGL.md",
+    "Computer Science/Linux/BSPWM + Polybar SysTray visible in Fullscreen.md",
+    "Computer Science/Linux/Prevent Bluetooth Dongle Suspension.md",
+    "Computer Science/POSIX - Portable Operating System Interface.md",
+    "2024-03-16.md",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas",
+    "Computer Science/Process Management API in POSIX.md",
+    "Computer Science/Pointers.md",
+    "Computer Science/Page Tables.md",
+    "5.md",
+    "Untitled.canvas",
+    "Private",
     "Computer Science/multithreading.c",
     "Computer Science/fork_race.c",
     "Computer Science/Semaphores.md~",
-    "Computer Science/Linux/Prevent Bluetooth Dongle Suspension.md",
-    "Computer Science/Process Management API in POSIX.md",
     "temp.md",
     "Computer Science/Multiplexer and Demultiplexer - Mux; Demux.md",
-    "Computer Science/Pointers.md",
-    "Computer Science/Page Tables.md",
-    "Computer Science/Concurrency.md",
-    "Miscellaneous/Every day stand guard at the door of your mind.md",
-    "Miscellaneous/Live versus Dead Players.md",
-    "Computer Science/Data Encryption Standard (DES).pdf",
-    "Computer Science/Fork-Join Model.md",
-    "Computer Science/Introduction to Cryptography.pdf",
-    "Computer Science/MIPS Fields.md",
-    "Computer Science/Ousterhout, Voodoo Constants.md",
-    "Computer Science/Red Black Trees.md",
-    "Computer Science/Linux/Bluetooth on Dualboot.md",
-    "Computer Science/Linux/WoeUSB - Windows On the Go on USB Drive.md",
-    "Computer Science/Linux/Read Serial USB-RS232.md",
-    "Computer Science/Linux/Network Printers Discovery.md",
-    "Computer Science/Linux/BSPWM + Polybar SysTray visible in Fullscreen.md",
-    "Computer Science/Linear Feedback Shift Registers.pdf",
-    "Computer Science/Linux/Proxmox VE GNS3VM.md",
-    "Writing/Building new habits, being healthier and becoming kinder.md",
-    "Untitled 1.md",
-    "Writing/Qtile and tiling-wms vs. full-fledged desktop environments in *UNIX.md"
+    "Computer Science/Introduction to Cryptography.pdf"
   ]
 }
